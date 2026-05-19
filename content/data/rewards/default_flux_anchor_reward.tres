@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="FluxAnchorRewardDef" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://content/defs/flux_anchor_reward_def.gd" id="1_reward_def"]
+
+[resource]
+script = ExtResource("1_reward_def")
+no_reward_min_elapsed_sec = 60.0
+full_gate_elapsed_sec = 300.0
+full_gate_wave_index = 10
+full_gate_enemy_kills = 25
+anchors_per_minute = 2.5
+max_time_anchors = 40.0
+anchors_per_wave = 2.25
+max_wave_anchors = 90.0
+anchors_per_enemy_kill = 0.25
+max_enemy_kill_anchors = 30.0
+anchors_per_boss_kill = 20.0
+anchors_per_stage_completed = 15.0
+run_complete_bonus = 15.0
+max_base_run_anchors = 225.0

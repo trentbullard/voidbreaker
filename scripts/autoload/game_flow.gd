@@ -17,6 +17,7 @@ const MENU: String = "res://scenes/world/world.tscn"
 const DEFAULT_PILOT_ROSTER: String = "res://content/data/pilots/pilot_roster.tres"
 const DEFAULT_RUN_DEFINITION: String = "res://content/data/runs/story_mode_intro.tres"
 const DEFAULT_META_UPGRADE_CATALOG: String = "res://content/data/meta_upgrades/meta_upgrade_catalog.tres"
+const DEFAULT_FLUX_ANCHOR_REWARD: String = "res://content/data/rewards/default_flux_anchor_reward.tres"
 const SAVE_PATH: String = "user://highscore.cfg"
 const VICTORY_MESSAGE: String = "YOU WON"
 const VICTORY_RETURN_DELAY_SEC: float = 2.5
@@ -89,6 +90,7 @@ var _boss_stats_global_by_id: Dictionary = {}
 var _boss_stats_by_pilot_id: Dictionary = {}
 var _cached_roster: PilotRoster = null
 var _cached_meta_upgrade_catalog: MetaUpgradeCatalog = null
+var _cached_flux_anchor_reward_def: FluxAnchorRewardDef = null
 var _loaded_selected_pilot_id: StringName = &""
 var _loaded_selected_ship_id: StringName = &""
 var _selected_ship_id_by_pilot_id: Dictionary = {}
@@ -102,6 +104,9 @@ var _run_pilot_id: StringName = &""
 var _run_total_nanobots_collected: int = 0
 var _run_peak_nanobots: int = 0
 var _run_last_nanobots_value: int = 0
+var _run_enemy_kills: int = 0
+var _run_boss_kills: int = 0
+var _run_completed_stage_keys: Dictionary = {}
 var _run_meta_stats_global: Dictionary = {}
 var _run_meta_stats_by_pilot_id: Dictionary = {}
 var _run_boss_stats_global_by_id: Dictionary = {}
@@ -115,6 +120,7 @@ var _active_boss_encounter: bool = false
 var _active_boss_def: EnemyBossDef = null
 var _active_boss_wave_index: int = 0
 var _active_boss_encounter_time_sec: float = 0.0
+var _last_flux_anchor_reward_breakdown: Dictionary = {}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -143,10 +149,14 @@ func start_new_run(run_definition: RunDefinition = null) -> void:
 	_run_total_nanobots_collected = 0
 	_run_peak_nanobots = 0
 	_run_last_nanobots_value = 0
+	_run_enemy_kills = 0
+	_run_boss_kills = 0
+	_run_completed_stage_keys.clear()
 	_run_meta_stats_global.clear()
 	_run_meta_stats_by_pilot_id.clear()
 	_run_boss_stats_global_by_id.clear()
 	_run_boss_stats_by_pilot_id.clear()
+	_last_flux_anchor_reward_breakdown.clear()
 	_rolled_stage_modifiers_by_stage_key.clear()
 	_clear_active_boss_encounter_state()
 	_active_run_definition = _resolve_run_definition(run_definition)
@@ -162,6 +172,8 @@ func record_damage_dealt(amount: float, combat_stat_context: CombatStatContext) 
 	_record_active_boss_metric(BOSS_STAT_DAMAGE_DEALT, amount, combat_stat_context)
 
 func record_enemy_kill(combat_stat_context: CombatStatContext) -> void:
+	if _run_active:
+		_run_enemy_kills += 1
 	_record_run_meta_stat(META_STAT_KILLS, 1.0, combat_stat_context)
 	_record_active_boss_metric(BOSS_STAT_KILLS, 1.0, combat_stat_context)
 
@@ -188,6 +200,8 @@ func complete_boss_encounter(player_won: bool, player_died: bool) -> void:
 	var boss_wave_index: int = _active_boss_wave_index
 	var encounter_time_sec: float = _active_boss_encounter_time_sec
 	_add_run_boss_stat(_get_boss_stat_id(boss_def), BOSS_STAT_ENCOUNTER_TIME_SEC, encounter_time_sec)
+	if player_won:
+		_run_boss_kills += 1
 	if player_died:
 		_add_run_boss_stat(_get_boss_stat_id(boss_def), BOSS_STAT_PLAYER_DEATHS, 1.0)
 	_clear_active_boss_encounter_state()
@@ -349,6 +363,7 @@ func player_died() -> void:
 	_end_run_and_return_to_menu(true)
 
 func player_won() -> void:
+	record_stage_completed(get_current_stage())
 	if not _finalize_run_end(false):
 		return
 	run_completed.emit()
@@ -403,6 +418,12 @@ func get_all_meta_upgrades() -> Array[MetaUpgradeDef]:
 		return []
 	return catalog.get_upgrades()
 
+func get_flux_anchor_reward_def() -> FluxAnchorRewardDef:
+	if _cached_flux_anchor_reward_def != null:
+		return _cached_flux_anchor_reward_def
+	_cached_flux_anchor_reward_def = load(DEFAULT_FLUX_ANCHOR_REWARD) as FluxAnchorRewardDef
+	return _cached_flux_anchor_reward_def
+
 func get_purchased_meta_upgrade_entries() -> Array[Dictionary]:
 	var entries: Array[Dictionary] = []
 	for upgrade: MetaUpgradeDef in get_all_meta_upgrades():
@@ -416,6 +437,108 @@ func get_purchased_meta_upgrade_entries() -> Array[Dictionary]:
 			"level": level,
 		})
 	return entries
+
+func get_last_flux_anchor_reward_breakdown() -> Dictionary:
+	return _last_flux_anchor_reward_breakdown.duplicate(true)
+
+func record_stage_completed(stage: StageDef) -> void:
+	if not _run_active or stage == null:
+		return
+	var key: String = _get_stage_completion_key(stage)
+	if key == "":
+		return
+	_run_completed_stage_keys[key] = true
+
+func calculate_flux_anchor_reward_breakdown(
+	reward_def: FluxAnchorRewardDef,
+	elapsed_sec: float,
+	progression_wave_index: int,
+	enemy_kills: int,
+	boss_kills: int,
+	completed_stage_count: int,
+	count_as_death: bool,
+	flux_accumulation_mult: float = 1.0
+) -> Dictionary:
+	if reward_def == null:
+		return {
+			"amount": 0,
+			"base_amount": 0,
+			"raw_amount": 0.0,
+			"gate_scale": 0.0,
+			"flux_accumulation_mult": max(flux_accumulation_mult, 0.0),
+			"components": {},
+		}
+
+	var safe_elapsed_sec: float = max(elapsed_sec, 0.0)
+	var safe_wave_index: int = max(progression_wave_index, 0)
+	var safe_enemy_kills: int = max(enemy_kills, 0)
+	var safe_boss_kills: int = max(boss_kills, 0)
+	var safe_stage_count: int = max(completed_stage_count, 0)
+
+	var time_anchors: float = min(
+		(safe_elapsed_sec / 60.0) * max(reward_def.anchors_per_minute, 0.0),
+		max(reward_def.max_time_anchors, 0.0)
+	)
+	var wave_anchors: float = min(
+		float(safe_wave_index) * max(reward_def.anchors_per_wave, 0.0),
+		max(reward_def.max_wave_anchors, 0.0)
+	)
+	var enemy_kill_anchors: float = min(
+		float(safe_enemy_kills) * max(reward_def.anchors_per_enemy_kill, 0.0),
+		max(reward_def.max_enemy_kill_anchors, 0.0)
+	)
+	var boss_anchors: float = float(safe_boss_kills) * max(reward_def.anchors_per_boss_kill, 0.0)
+	var stage_anchors: float = float(safe_stage_count) * max(reward_def.anchors_per_stage_completed, 0.0)
+	var completion_anchors: float = max(reward_def.run_complete_bonus, 0.0) if not count_as_death else 0.0
+	var raw_amount: float = (
+		time_anchors
+		+ wave_anchors
+		+ enemy_kill_anchors
+		+ boss_anchors
+		+ stage_anchors
+		+ completion_anchors
+	)
+
+	var is_immediate_end: bool = (
+		safe_elapsed_sec < max(reward_def.no_reward_min_elapsed_sec, 0.0)
+		and safe_wave_index < 3
+		and safe_enemy_kills < 8
+	)
+	var gate_scale: float = 0.0
+	if not is_immediate_end:
+		var elapsed_gate: float = _safe_ratio(safe_elapsed_sec, reward_def.full_gate_elapsed_sec)
+		var wave_gate: float = _safe_ratio(float(safe_wave_index), float(reward_def.full_gate_wave_index))
+		var kill_gate: float = _safe_ratio(float(safe_enemy_kills), float(reward_def.full_gate_enemy_kills))
+		gate_scale = clamp(max(elapsed_gate, wave_gate, kill_gate), 0.0, 1.0)
+
+	var gated_amount: float = raw_amount * gate_scale
+	var base_amount: int = int(round(min(gated_amount, max(reward_def.max_base_run_anchors, 0.0))))
+	var safe_flux_mult: float = max(flux_accumulation_mult, 0.0)
+	var final_amount: int = int(round(float(base_amount) * safe_flux_mult))
+
+	return {
+		"amount": final_amount,
+		"base_amount": base_amount,
+		"raw_amount": raw_amount,
+		"gate_scale": gate_scale,
+		"flux_accumulation_mult": safe_flux_mult,
+		"components": {
+			"time": time_anchors,
+			"waves": wave_anchors,
+			"enemy_kills": enemy_kill_anchors,
+			"bosses": boss_anchors,
+			"stages": stage_anchors,
+			"completion": completion_anchors,
+		},
+		"inputs": {
+			"elapsed_sec": safe_elapsed_sec,
+			"progression_wave_index": safe_wave_index,
+			"enemy_kills": safe_enemy_kills,
+			"boss_kills": safe_boss_kills,
+			"completed_stage_count": safe_stage_count,
+			"count_as_death": count_as_death,
+		},
+	}
 
 func add_flux_anchors(amount: int) -> void:
 	if amount <= 0:
@@ -982,10 +1105,21 @@ func _copy_stage_modifier_array(source: Array) -> Array[StageModifierDef]:
 			copied.append(modifier)
 	return copied
 
+func _get_stage_completion_key(stage: StageDef) -> String:
+	if stage == null:
+		return ""
+	var stage_id: StringName = stage.get_stage_id()
+	if stage_id != &"":
+		return String(stage_id)
+	return stage.resource_path
+
 func _clear_run_progression() -> void:
 	_active_run_definition = null
 	_active_stage_index = -1
 	_run_elapsed_sec = 0.0
+	_run_enemy_kills = 0
+	_run_boss_kills = 0
+	_run_completed_stage_keys.clear()
 	_run_meta_stats_global.clear()
 	_run_meta_stats_by_pilot_id.clear()
 	_run_boss_stats_global_by_id.clear()
@@ -1122,6 +1256,48 @@ func _append_meta_stat_key_combinations(metric_key: String, axes: Array[Dictiona
 		next_parts.append(String(raw_value))
 		_append_meta_stat_key_combinations(metric_key, axes, axis_index + 1, next_parts, keys_set)
 
+func _award_flux_anchors_for_run(run_seconds: float, final_wave: int, count_as_death: bool) -> void:
+	var reward_def: FluxAnchorRewardDef = get_flux_anchor_reward_def()
+	var flux_mult: float = _compute_flux_accumulation_mult()
+	var breakdown: Dictionary = calculate_flux_anchor_reward_breakdown(
+		reward_def,
+		run_seconds,
+		final_wave,
+		_run_enemy_kills,
+		_run_boss_kills,
+		_run_completed_stage_keys.size(),
+		count_as_death,
+		flux_mult
+	)
+	_last_flux_anchor_reward_breakdown = breakdown.duplicate(true)
+	var amount: int = max(0, int(breakdown.get("amount", 0)))
+	if amount > 0:
+		add_flux_anchors(amount)
+
+func _compute_flux_accumulation_mult() -> float:
+	var value: float = 1.0
+	for entry: Dictionary in get_purchased_meta_upgrade_entries():
+		var upgrade: MetaUpgradeDef = entry.get("upgrade", null) as MetaUpgradeDef
+		var level: int = max(0, int(entry.get("level", 0)))
+		if upgrade == null or level <= 0:
+			continue
+		for modifier: StatModifier in upgrade.modifiers_per_tier:
+			if modifier == null or not modifier.enabled:
+				continue
+			if int(modifier.stat) != int(StatTypes.Stat.FLUX_ACCUMULATION_MULT):
+				continue
+			match modifier.op:
+				StatTypes.Op.ADD:
+					value += modifier.value * float(level)
+				StatTypes.Op.MULT:
+					value *= 1.0 + ((modifier.value - 1.0) * float(level))
+	return max(value, 0.0)
+
+func _safe_ratio(numerator: float, denominator: float) -> float:
+	if denominator <= 0.0:
+		return 1.0 if numerator > 0.0 else 0.0
+	return numerator / denominator
+
 func _finalize_run_stats(count_as_death: bool) -> void:
 	if not _run_active:
 		return
@@ -1155,6 +1331,7 @@ func _finalize_run_stats(count_as_death: bool) -> void:
 	_pilot_stats_by_id[String(pilot_id)] = stats
 	_flush_run_meta_stats_to_lifetime()
 	_flush_run_boss_stats_to_lifetime()
+	_award_flux_anchors_for_run(float(run_seconds), final_wave, count_as_death)
 	_save_user_data()
 	pilot_stats_updated.emit(pilot_id, stats.duplicate(true))
 	_emit_new_unlocks(before_unlocks, _build_unlock_state())

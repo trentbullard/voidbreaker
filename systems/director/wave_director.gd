@@ -898,6 +898,7 @@ func _on_active_boss_about_to_die(target: Enemy) -> void:
 		and current_stage.should_open_gateway_on_boss_defeat()
 		and GameFlow.has_next_stage()
 	):
+		GameFlow.record_stage_completed(current_stage)
 		if _enemy_combat_scaling_dir != null:
 			_enemy_combat_scaling_dir.set_carried_baseline_from_snapshot(carryover_snapshot)
 		_enter_gateway_hold(current_stage, gateway_position)

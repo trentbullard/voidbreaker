@@ -7,8 +7,8 @@
 [ext_resource type="FontFile" uid="uid://bajq4o7ypmdmu" path="res://assets/fonts/Chakra_Petch/ChakraPetch-Light.ttf" id="4_wem23"]
 [ext_resource type="FontFile" uid="uid://dtkmmkanjxyxd" path="res://assets/fonts/Orbitron/Orbitron-Regular.ttf" id="5_3ovsr"]
 [ext_resource type="AudioStream" uid="uid://letca81rhxc1" path="res://assets/sounds/fluxbreak_menu.mp3" id="7_5seab"]
-[ext_resource type="Script" path="res://scripts/main_menu/flux_anchors_container.gd" id="10_fac"]
-[ext_resource type="PackedScene" path="res://scenes/main_menu/upgrades_panel.tscn" id="11_upgpanel"]
+[ext_resource type="Script" uid="uid://2kewa2vhj44v" path="res://scripts/main_menu/flux_anchors_container.gd" id="10_fac"]
+[ext_resource type="PackedScene" uid="uid://cx03u4eql62kw" path="res://scenes/main_menu/upgrades_panel.tscn" id="11_upgpanel"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ob46e"]
 line_spacing = 0.0
@@ -226,12 +226,12 @@ layout_mode = 2
 text = "Instructions (for now)
 
 Autobattler - guns will fire on closest/best target
-Enemies and objects drop NANOBOTS
+Enemies and objects drop NANOBOTS (NB value in the HUD)
 NANOBOTS are used to purchase upgrades and weapons
-Dock with POIs to purchase
+Dock with POIs to purchase upgrades
 NANOBOTS can also be used to repair the ship's hull
 Survive as long as you can
-Unlock Ace by dying after wave 10"
+Unlock pilots and ships by reaching certain achievements"
 label_settings = SubResource("LabelSettings_thkx5")
 horizontal_alignment = 1
 
@@ -302,7 +302,6 @@ text = "Roadmap:
 - 5 enemy 'factions' with
    many distinct enemies
 - Music (need help)
-- Improved flight mechanics
 - Lore/Story"
 label_settings = SubResource("LabelSettings_4xg86")
 
