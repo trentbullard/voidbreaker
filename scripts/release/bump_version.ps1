@@ -27,6 +27,7 @@ $projectFile = Join-Path $projectRoot "project.godot"
 $exportFile = Join-Path $projectRoot "export_presets.cfg"
 $installerFile = Join-Path $projectRoot "installer\windows\Fluxbreak.iss"
 $readmeFile = Join-Path $projectRoot "docs\release\README.txt"
+$rootReadmeFile = Join-Path $projectRoot "README.md"
 
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
@@ -129,6 +130,10 @@ Write-Text -Path $installerFile -Content $installerUpdated
 $readmeText = Read-Text -Path $readmeFile
 $readmeUpdated = Replace-OrThrow -Content $readmeText -Pattern '(?m)^Version:\s+.+' -Replacement "Version: $displayVersion" -Label "docs/release/README.txt Version"
 Write-Text -Path $readmeFile -Content $readmeUpdated
+
+$rootReadmeText = Read-Text -Path $rootReadmeFile
+$rootReadmeUpdated = Replace-OrThrow -Content $rootReadmeText -Pattern '(?m)^- Project version:\s+`[^`]+`' -Replacement "- Project version: ``$displayVersion``" -Label "README.md Tech Project version"
+Write-Text -Path $rootReadmeFile -Content $rootReadmeUpdated
 
 if ($DryRun) {
     Write-Host "Dry run complete."

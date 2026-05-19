@@ -57,7 +57,7 @@ Combat targeting and firing are handled automatically by the ship's weapon syste
 
 - Engine: Godot 4.5
 - Language: typed GDScript
-- Project version: `0.1.3`
+- Project version: `0.1.6`
 
 ## Running The Project
 
@@ -92,7 +92,8 @@ Fluxbreak is aiming for readable chaos. The guiding rubric for new work is simpl
 - keep the game fast on mid-tier hardware
 
 ## TODO
-- 8 weapon cap
+- music
+- ammo/damage types
 
 ## License
 
