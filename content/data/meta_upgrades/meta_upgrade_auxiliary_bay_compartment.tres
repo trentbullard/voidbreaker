@@ -9,6 +9,8 @@ stat = 72
 phase = 0
 value = 1.0
 source_id = "auxiliary_bay_compartment"
+applies_to_minions = true
+applies_to_player = false
 metadata/_custom_type_script = "uid://c7mxb2uqowqsm"
 
 [resource]

@@ -8,7 +8,10 @@ class_name UpgradesPanel
 signal closed
 
 @export_group("Upgrades")
+## Shared catalog used by both the main menu and runtime meta upgrade wiring.
+@export var meta_upgrade_catalog: MetaUpgradeCatalog = preload("res://content/data/meta_upgrades/meta_upgrade_catalog.tres")
 ## List of meta upgrades to display in the panel.
+## Used as a fallback when no catalog is assigned.
 @export var meta_upgrades: Array[MetaUpgradeDef] = []
 
 @export_group("Display")
@@ -134,7 +137,7 @@ func _build_ui() -> void:
 	scroll.add_child(scroll_vbox)
 
 	_row_data.clear()
-	for upgrade in meta_upgrades:
+	for upgrade in _get_meta_upgrades():
 		if upgrade == null:
 			continue
 		var row: HBoxContainer = HBoxContainer.new()
@@ -216,7 +219,7 @@ func _apply_menu_font_theme() -> void:
 func show_panel() -> void:
 	_pending_levels.clear()
 	var current: Dictionary = GameFlow.get_current_meta_upgrade_levels()
-	for upgrade in meta_upgrades:
+	for upgrade in _get_meta_upgrades():
 		if upgrade == null or upgrade.id == "":
 			continue
 		_pending_levels[upgrade.id] = int(current.get(upgrade.id, 0))
@@ -288,7 +291,7 @@ func _refresh_display() -> void:
 
 func _calculate_pending_cost(current_levels: Dictionary) -> int:
 	var total: int = 0
-	for upgrade in meta_upgrades:
+	for upgrade in _get_meta_upgrades():
 		if upgrade == null or upgrade.id == "":
 			continue
 		var pending_tier: int = int(_pending_levels.get(upgrade.id, 0))
@@ -298,7 +301,7 @@ func _calculate_pending_cost(current_levels: Dictionary) -> int:
 
 
 func _has_pending_changes(current_levels: Dictionary) -> bool:
-	for upgrade in meta_upgrades:
+	for upgrade in _get_meta_upgrades():
 		if upgrade == null or upgrade.id == "":
 			continue
 		var pending_tier: int = int(_pending_levels.get(upgrade.id, 0))
@@ -331,7 +334,7 @@ func _on_apply_pressed() -> void:
 	if GameFlow.apply_meta_upgrades(_pending_levels, total_cost):
 		_pending_levels.clear()
 		var new_current: Dictionary = GameFlow.get_current_meta_upgrade_levels()
-		for upgrade in meta_upgrades:
+		for upgrade in _get_meta_upgrades():
 			if upgrade == null or upgrade.id == "":
 				continue
 			_pending_levels[upgrade.id] = int(new_current.get(upgrade.id, 0))
@@ -341,7 +344,7 @@ func _on_apply_pressed() -> void:
 func _on_reset_pressed() -> void:
 	_pending_levels.clear()
 	var current: Dictionary = GameFlow.get_current_meta_upgrade_levels()
-	for upgrade in meta_upgrades:
+	for upgrade in _get_meta_upgrades():
 		if upgrade == null or upgrade.id == "":
 			continue
 		_pending_levels[upgrade.id] = int(current.get(upgrade.id, 0))
@@ -355,7 +358,15 @@ func _on_close_pressed() -> void:
 
 
 func _find_upgrade_by_id(upgrade_id: String) -> MetaUpgradeDef:
-	for upgrade in meta_upgrades:
+	for upgrade in _get_meta_upgrades():
 		if upgrade != null and upgrade.id == upgrade_id:
 			return upgrade
 	return null
+
+
+func _get_meta_upgrades() -> Array[MetaUpgradeDef]:
+	if meta_upgrade_catalog != null:
+		var catalog_upgrades: Array[MetaUpgradeDef] = meta_upgrade_catalog.get_upgrades()
+		if not catalog_upgrades.is_empty():
+			return catalog_upgrades
+	return meta_upgrades

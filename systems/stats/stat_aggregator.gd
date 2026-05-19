@@ -73,6 +73,46 @@ func add_upgrade(upgrade: Upgrade) -> void:
 		stats_changed.emit(affected)
 		_broadcast_stats(affected)
 
+func add_meta_upgrade(upgrade: MetaUpgradeDef, tier_count: int) -> void:
+	if upgrade == null:
+		return
+	if tier_count <= 0:
+		return
+
+	var source_id: String = upgrade.id.strip_edges()
+	if source_id == "":
+		push_warning("Ignoring meta upgrade with empty id: %s" % upgrade.resource_path)
+		return
+
+	var affected: Array[Stat] = []
+	for m: StatModifier in upgrade.modifiers_per_tier:
+		if m == null or not m.enabled:
+			continue
+
+		if m.op != Op.ADD and m.op != Op.MULT:
+			push_warning("Skipping unsupported meta upgrade op for %s stat %d" % [source_id, int(m.stat)])
+			continue
+
+		var mod_copy: StatModifier = m.duplicate(true) as StatModifier
+		if mod_copy == null:
+			continue
+
+		mod_copy.source_id = source_id
+		if mod_copy.op == Op.ADD:
+			mod_copy.value = m.value * float(tier_count)
+		else:
+			mod_copy.value = 1.0 + ((m.value - 1.0) * float(tier_count))
+
+		var arr: Array = _mods.get(mod_copy.stat, [])
+		arr.append(mod_copy)
+		_mods[mod_copy.stat] = arr
+		if not affected.has(mod_copy.stat):
+			affected.append(mod_copy.stat)
+
+	if not affected.is_empty():
+		stats_changed.emit(affected)
+		_broadcast_stats(affected)
+
 func remove_by_source(stat_id: Stat, source_id: String) -> void:
 	if not _mods.has(stat_id):
 		return

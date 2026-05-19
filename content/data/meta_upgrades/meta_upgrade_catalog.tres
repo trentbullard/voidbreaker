@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MetaUpgradeCatalog" load_steps=19 format=3]
+
+[ext_resource type="Script" path="res://content/defs/meta_upgrade_catalog.gd" id="1_catalog"]
+[ext_resource type="Script" uid="uid://bs83khy1we154" path="res://content/defs/meta_upgrade_def.gd" id="2_meta_def"]
+[ext_resource type="Resource" uid="uid://c5x43f4s4dn5i" path="res://content/data/meta_upgrades/meta_upgrade_flux_infused_fuel_chemistry.tres" id="3_fuel"]
+[ext_resource type="Resource" uid="uid://b08occ0wm3jxc" path="res://content/data/meta_upgrades/meta_upgrade_auxiliary_bay_compartment.tres" id="4_bay"]
+[ext_resource type="Resource" uid="uid://ds2i7l7o6dq4k" path="res://content/data/meta_upgrades/meta_upgrade_galactic_trade_certificate.tres" id="5_trade"]
+[ext_resource type="Resource" uid="uid://cemh5xg24se2p" path="res://content/data/meta_upgrades/meta_upgrade_redundant_shield_capacitors.tres" id="6_cap"]
+[ext_resource type="Resource" uid="uid://ccjdftjhivrwg" path="res://content/data/meta_upgrades/meta_upgrade_asynchronous_docking_coprocessor.tres" id="7_dock"]
+[ext_resource type="Resource" uid="uid://bh11gy17m48fh" path="res://content/data/meta_upgrades/meta_upgrade_flux_condenser.tres" id="8_flux"]
+[ext_resource type="Resource" uid="uid://coke22k5f6sl3" path="res://content/data/meta_upgrades/meta_upgrade_neuroadaptive_stabilizers.tres" id="9_neuro"]
+[ext_resource type="Resource" uid="uid://dfs1r5237kv3q" path="res://content/data/meta_upgrades/meta_upgrade_xray_amplifier.tres" id="10_xray"]
+[ext_resource type="Resource" uid="uid://bsaqr8ipf8nc3" path="res://content/data/meta_upgrades/meta_upgrade_maintenance_swarm_calibration.tres" id="11_repair"]
+[ext_resource type="Resource" uid="uid://cwn7ck6hgo5oy" path="res://content/data/meta_upgrades/meta_upgrade_trawl_field_projector.tres" id="12_trawl"]
+[ext_resource type="Resource" uid="uid://bgaqq8eeu5wum" path="res://content/data/meta_upgrades/meta_upgrade_composite_hull_materials.tres" id="13_hull"]
+[ext_resource type="Resource" uid="uid://ddx0dyu3hngix" path="res://content/data/meta_upgrades/meta_upgrade_energy_field_calibration.tres" id="14_shield"]
+[ext_resource type="Resource" uid="uid://doly3jo8ewn0y" path="res://content/data/meta_upgrades/meta_upgrade_combat_ai_optimization.tres" id="15_ai"]
+[ext_resource type="Resource" uid="uid://b5qt83wes71jl" path="res://content/data/meta_upgrades/meta_upgrade_deep_space_sensor_array.tres" id="16_sensor"]
+[ext_resource type="Resource" uid="uid://l1aq4wtd6r7j" path="res://content/data/meta_upgrades/meta_upgrade_ablative_response_network.tres" id="17_ablative"]
+[ext_resource type="Resource" uid="uid://c7payll5rxpn3" path="res://content/data/meta_upgrades/meta_upgrade_quantum_targeting_computer.tres" id="18_quantum"]
+
+[resource]
+script = ExtResource("1_catalog")
+upgrades = Array[ExtResource("2_meta_def")]([ExtResource("3_fuel"), ExtResource("4_bay"), ExtResource("5_trade"), ExtResource("6_cap"), ExtResource("7_dock"), ExtResource("8_flux"), ExtResource("9_neuro"), ExtResource("10_xray"), ExtResource("11_repair"), ExtResource("12_trawl"), ExtResource("13_hull"), ExtResource("14_shield"), ExtResource("15_ai"), ExtResource("16_sensor"), ExtResource("17_ablative"), ExtResource("18_quantum")])

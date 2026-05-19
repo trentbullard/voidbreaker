@@ -16,6 +16,7 @@ signal meta_upgrades_applied(levels: Dictionary)
 const MENU: String = "res://scenes/world/world.tscn"
 const DEFAULT_PILOT_ROSTER: String = "res://content/data/pilots/pilot_roster.tres"
 const DEFAULT_RUN_DEFINITION: String = "res://content/data/runs/story_mode_intro.tres"
+const DEFAULT_META_UPGRADE_CATALOG: String = "res://content/data/meta_upgrades/meta_upgrade_catalog.tres"
 const SAVE_PATH: String = "user://highscore.cfg"
 const VICTORY_MESSAGE: String = "YOU WON"
 const VICTORY_RETURN_DELAY_SEC: float = 2.5
@@ -87,6 +88,7 @@ var _meta_stats_by_pilot_id: Dictionary = {}
 var _boss_stats_global_by_id: Dictionary = {}
 var _boss_stats_by_pilot_id: Dictionary = {}
 var _cached_roster: PilotRoster = null
+var _cached_meta_upgrade_catalog: MetaUpgradeCatalog = null
 var _loaded_selected_pilot_id: StringName = &""
 var _loaded_selected_ship_id: StringName = &""
 var _selected_ship_id_by_pilot_id: Dictionary = {}
@@ -388,6 +390,32 @@ func get_meta_upgrade_level(upgrade_id: String) -> int:
 
 func get_current_meta_upgrade_levels() -> Dictionary:
 	return _meta_upgrade_levels.duplicate(true)
+
+func get_meta_upgrade_catalog() -> MetaUpgradeCatalog:
+	if _cached_meta_upgrade_catalog != null:
+		return _cached_meta_upgrade_catalog
+	_cached_meta_upgrade_catalog = load(DEFAULT_META_UPGRADE_CATALOG) as MetaUpgradeCatalog
+	return _cached_meta_upgrade_catalog
+
+func get_all_meta_upgrades() -> Array[MetaUpgradeDef]:
+	var catalog: MetaUpgradeCatalog = get_meta_upgrade_catalog()
+	if catalog == null:
+		return []
+	return catalog.get_upgrades()
+
+func get_purchased_meta_upgrade_entries() -> Array[Dictionary]:
+	var entries: Array[Dictionary] = []
+	for upgrade: MetaUpgradeDef in get_all_meta_upgrades():
+		if upgrade == null:
+			continue
+		var level: int = get_meta_upgrade_level(upgrade.id)
+		if level <= 0:
+			continue
+		entries.append({
+			"upgrade": upgrade,
+			"level": level,
+		})
+	return entries
 
 func add_flux_anchors(amount: int) -> void:
 	if amount <= 0:

@@ -16,6 +16,7 @@ const COLOR_WEAPON_NAME: Color = Color(0.9, 0.8, 0.5)  # Gold for weapon names
 @onready var stat_container: VBoxContainer = $StatContainer
 
 var _stat_rows: Dictionary = {}  # stat_id -> { base_label, net_label }
+var _meta_upgrade_section: VBoxContainer = null
 var _turret_sections: Array[Dictionary] = []  # Array of turret UI references
 var _weapon_ui_nodes: Array[Node] = []  # UI nodes for weapon sections (cleared on rebuild)
 var _ship: Ship = null
@@ -124,6 +125,7 @@ func refresh() -> void:
 	_ship = get_tree().get_first_node_in_group("player") as Ship
 	if _ship == null:
 		return
+	_update_meta_upgrade_section()
 	_update_all_stats()
 	_rebuild_turret_sections()
 
@@ -132,12 +134,71 @@ func _build_stat_rows() -> void:
 		child.queue_free()
 	_stat_rows.clear()
 	_turret_sections.clear()
+
+	_meta_upgrade_section = VBoxContainer.new()
+	_meta_upgrade_section.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	stat_container.add_child(_meta_upgrade_section)
 	
 	for info in STAT_DISPLAY_INFO:
 		if info.has("category"):
 			_add_category_header(info["category"])
 		elif info.has("stat"):
 			_add_stat_row(info)
+
+func _update_meta_upgrade_section() -> void:
+	if _meta_upgrade_section == null:
+		return
+
+	for child: Node in _meta_upgrade_section.get_children():
+		child.queue_free()
+
+	var entries: Array[Dictionary] = GameFlow.get_purchased_meta_upgrade_entries()
+	if entries.is_empty():
+		return
+
+	var header: Label = Label.new()
+	header.text = "META UPGRADES"
+	header.add_theme_font_size_override("font_size", 16)
+	header.add_theme_color_override("font_color", COLOR_HEADER)
+	header.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	_meta_upgrade_section.add_child(header)
+
+	for entry: Dictionary in entries:
+		var upgrade: MetaUpgradeDef = entry.get("upgrade", null) as MetaUpgradeDef
+		if upgrade == null:
+			continue
+		var level: int = max(0, int(entry.get("level", 0)))
+		if level <= 0:
+			continue
+		_add_meta_upgrade_row(upgrade, level)
+
+	var spacer: Control = Control.new()
+	spacer.custom_minimum_size = Vector2(0, 8)
+	_meta_upgrade_section.add_child(spacer)
+
+func _add_meta_upgrade_row(upgrade: MetaUpgradeDef, level: int) -> void:
+	var row: HBoxContainer = HBoxContainer.new()
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+	var name_label: Label = Label.new()
+	name_label.text = upgrade.display_name if upgrade.display_name != "" else upgrade.id
+	name_label.tooltip_text = upgrade.description
+	name_label.add_theme_font_size_override("font_size", 14)
+	name_label.add_theme_color_override("font_color", Color(0.8, 0.8, 0.8))
+	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_label.custom_minimum_size = Vector2(120, 0)
+	row.add_child(name_label)
+
+	var tier_label: Label = Label.new()
+	tier_label.text = "%d/%d" % [level, upgrade.max_tiers]
+	tier_label.tooltip_text = upgrade.description
+	tier_label.add_theme_font_size_override("font_size", 12)
+	tier_label.add_theme_color_override("font_color", COLOR_WEAPON_NAME)
+	tier_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	tier_label.custom_minimum_size = Vector2(52, 0)
+	row.add_child(tier_label)
+
+	_meta_upgrade_section.add_child(row)
 
 func _add_category_header(title: String) -> void:
 	var header := Label.new()

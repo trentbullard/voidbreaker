@@ -277,6 +277,7 @@ func _apply_pilot_stat_profile(def: PilotDef) -> void:
 		return
 	stat_aggregator.clear()
 	if def == null:
+		_apply_purchased_meta_upgrades()
 		return
 
 	var pilot_source_id: String = "pilot:%s" % String(def.get_pilot_id())
@@ -297,6 +298,16 @@ func _apply_pilot_stat_profile(def: PilotDef) -> void:
 		if upgrade_copy == null:
 			continue
 		stat_aggregator.add_upgrade(upgrade_copy)
+
+	_apply_purchased_meta_upgrades()
+
+func _apply_purchased_meta_upgrades() -> void:
+	if stat_aggregator == null:
+		return
+	for entry: Dictionary in GameFlow.get_purchased_meta_upgrade_entries():
+		var upgrade: MetaUpgradeDef = entry.get("upgrade", null) as MetaUpgradeDef
+		var level: int = int(entry.get("level", 0))
+		stat_aggregator.add_meta_upgrade(upgrade, level)
 
 func _apply_selected_starting_weapon() -> void:
 	if loadout == null:
