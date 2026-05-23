@@ -244,7 +244,7 @@ offset_right = 10.0
 offset_bottom = 10.0
 script = ExtResource("3_ob46e")
 
-[node name="Label" type="Label" parent="HighScoreContainer" unique_id=1615079141]
+[node name="HighScoreLabel" type="Label" parent="HighScoreContainer" unique_id=1615079141]
 layout_mode = 0
 offset_right = 83.0
 offset_bottom = 23.0
@@ -256,18 +256,16 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -230.0
 offset_top = 10.0
 offset_right = -10.0
-offset_bottom = 35.0
 grow_horizontal = 0
 script = ExtResource("10_fac")
 
-[node name="Label" type="Label" parent="FluxAnchorsContainer" unique_id=791929769]
-layout_mode = 0
-offset_right = 220.0
-offset_bottom = 25.0
-text = "Flux Anchors: 0"
+[node name="FluxAnchorsLabel" type="Label" parent="FluxAnchorsContainer" unique_id=791929769]
+layout_mode = 1
+anchors_preset = -1
+grow_horizontal = 0
+text = "Flux Anchors: 10000"
 label_settings = SubResource("LabelSettings_3ovsr")
 horizontal_alignment = 2
 
