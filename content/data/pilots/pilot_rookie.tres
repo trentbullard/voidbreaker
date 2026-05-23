@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PilotDef" load_steps=15 format=3 uid="uid://cjem4ot6d0tkb"]
+[gd_resource type="Resource" script_class="PilotDef" format=3 uid="uid://cjem4ot6d0tkb"]
 
 [ext_resource type="Script" uid="uid://bcwfpgffm7rus" path="res://content/defs/pilot_def.gd" id="1"]
 [ext_resource type="Resource" uid="uid://da52xasn5mssy" path="res://content/data/ships/starter_fighter.tres" id="2"]

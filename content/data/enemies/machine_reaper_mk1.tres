@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyDef" load_steps=10 format=3 uid="uid://d3ufm3pj66s60"]
+[gd_resource type="Resource" script_class="EnemyDef" format=3 uid="uid://d3ufm3pj66s60"]
 
 [ext_resource type="PackedScene" uid="uid://cva25tbpxf8uj" path="res://scenes/enemies/machine_reaper_mk1.tscn" id="1_0sgp6"]
 [ext_resource type="Script" uid="uid://bx6wive40u6f" path="res://content/defs/enemy_def.gd" id="1_48bbe"]

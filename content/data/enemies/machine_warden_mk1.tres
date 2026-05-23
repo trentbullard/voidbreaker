@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyDef" load_steps=10 format=3 uid="uid://1qi3nathg8fk"]
+[gd_resource type="Resource" script_class="EnemyDef" format=3 uid="uid://1qi3nathg8fk"]
 
 [ext_resource type="PackedScene" uid="uid://ddy8v18np0oaq" path="res://scenes/enemies/machine_warden_mk1.tscn" id="1_d3rwu"]
 [ext_resource type="Script" uid="uid://bx6wive40u6f" path="res://content/defs/enemy_def.gd" id="2_wqh03"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://h4psmu2wl1p7"]
+[gd_scene format=3 uid="uid://h4psmu2wl1p7"]
 
 [ext_resource type="Script" uid="uid://brh4jqcc46yxq" path="res://scripts/poi/poi_instance.gd" id="1_8ygco"]
 [ext_resource type="Script" uid="uid://c7bw4eh6k252" path="res://content/defs/poi_def.gd" id="2_5cspi"]
@@ -12,19 +12,19 @@ poi_type = 1
 upgrade_tags = Array[String](["defense", "shields", "hull", "repair"])
 metadata/_custom_type_script = "uid://c7bw4eh6k252"
 
-[node name="ShieldArray" type="Node3D"]
+[node name="ShieldArray" type="Node3D" unique_id=2106533418]
 script = ExtResource("1_8ygco")
 poi_def = SubResource("Resource_804vh")
 mesh_instance_path = NodePath("ShieldArrayMesh")
 
-[node name="ShieldArrayMesh" parent="." instance=ExtResource("2_in167")]
+[node name="ShieldArrayMesh" parent="." unique_id=1153980905 instance=ExtResource("2_in167")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1682653793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.421524, 0, -80.40046)
 omni_range = 100.0
 omni_attenuation = 0.1
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=703030002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.16342, 0, 91.5001)
 omni_range = 100.0
 omni_attenuation = 0.1

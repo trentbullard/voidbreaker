@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DroneBayWeaponDef" load_steps=6 format=3 uid="uid://b7qjg75iq2hov"]
+[gd_resource type="Resource" script_class="DroneBayWeaponDef" format=3 uid="uid://b7qjg75iq2hov"]
 
 [ext_resource type="Script" uid="uid://cn8dy8w3bqoi0" path="res://content/defs/drone_bay_weapon_def.gd" id="1_xawy5"]
 [ext_resource type="Resource" uid="uid://b6g58t7p1i3gt" path="res://content/data/weapons/drone_laser.tres" id="2_lpkoe"]

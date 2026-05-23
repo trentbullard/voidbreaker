@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MountLoadoutDef" load_steps=3 format=3 uid="uid://bkc8y7y3qn7k2"]
+[gd_resource type="Resource" script_class="MountLoadoutDef" format=3 uid="uid://bkc8y7y3qn7k2"]
 
 [ext_resource type="Script" uid="uid://dhvgo1sv28rx3" path="res://content/defs/mount_loadout_def.gd" id="1_vdhsm"]
 [ext_resource type="Resource" uid="uid://b7qjg75iq2hov" path="res://content/data/weapons/drone_bay_mk1.tres" id="2_8sywm"]

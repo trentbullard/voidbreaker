@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk2fpvtu6c4ij"]
+[gd_scene format=3 uid="uid://bk2fpvtu6c4ij"]
 
 [ext_resource type="Script" uid="uid://bt13rvt3eupox" path="res://scripts/target_object/target_object.gd" id="1_kxkup"]
 [ext_resource type="PackedScene" uid="uid://yo2mi8h7ihfj" path="res://scenes/explosion.tscn" id="2_kfbfx"]
@@ -15,16 +15,16 @@ emission = Color(0, 0.5568628, 1, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_s2cdo"]
 material = SubResource("StandardMaterial3D_j40ee")
 
-[node name="TargetObject" type="RigidBody3D"]
+[node name="TargetObject" type="RigidBody3D" unique_id=1160648524]
 collision_layer = 4
 collision_mask = 3
 gravity_scale = 0.0
 script = ExtResource("1_kxkup")
 explosion_scene = ExtResource("2_kfbfx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=357463087]
 shape = SubResource("SphereShape3D_kfbfx")
 
-[node name="VisualRoot" type="MeshInstance3D" parent="."]
+[node name="VisualRoot" type="MeshInstance3D" parent="." unique_id=110800844]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0)
 mesh = SubResource("SphereMesh_s2cdo")

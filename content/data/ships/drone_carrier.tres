@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShipDef" load_steps=33 format=3 uid="uid://crfe5wom1uro4"]
+[gd_resource type="Resource" script_class="ShipDef" format=3 uid="uid://crfe5wom1uro4"]
 
 [ext_resource type="Script" uid="uid://dhvgo1sv28rx3" path="res://content/defs/mount_loadout_def.gd" id="1_d6438"]
 [ext_resource type="PackedScene" uid="uid://yo2mi8h7ihfj" path="res://scenes/explosion.tscn" id="1_vtnx1"]

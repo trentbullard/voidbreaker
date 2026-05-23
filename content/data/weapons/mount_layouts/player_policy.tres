@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MountLayoutPolicy" load_steps=2 format=3 uid="uid://dcssl41w3hvhr"]
+[gd_resource type="Resource" script_class="MountLayoutPolicy" format=3 uid="uid://dcssl41w3hvhr"]
 
 [ext_resource type="Script" uid="uid://cmxqylyj6csvd" path="res://systems/mounts/mount_layout_policy.gd" id="1_gy3d7"]
 

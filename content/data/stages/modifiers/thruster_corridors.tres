@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="StageModifierDef" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="StageModifierDef" format=3 uid="uid://d0eadwg3xdk1b"]
 
-[ext_resource type="Script" path="res://content/defs/stage_modifier_def.gd" id="1_stage_modifier_def"]
+[ext_resource type="Script" uid="uid://c7mxb2uqowqsm" path="res://content/defs/stat_modifier_def.gd" id="1_8ce6e"]
+[ext_resource type="Script" uid="uid://c0baui7bplv2c" path="res://content/defs/stage_modifier_def.gd" id="1_stage_modifier_def"]
 
 [resource]
 script = ExtResource("1_stage_modifier_def")
 modifier_id = &"thruster_corridors"
 display_name = "Thruster Corridors"
 description = "Wide open lanes and clean approach vectors. A good hook for future player mobility or scanner bonuses."
-kind = 0
 tags = PackedStringArray("mobility", "navigation", "positive")

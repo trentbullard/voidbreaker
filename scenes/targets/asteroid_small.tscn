@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5vgj2pner6ln"]
+[gd_scene format=3 uid="uid://c5vgj2pner6ln"]
 
 [ext_resource type="PackedScene" uid="uid://dr3ihf8hju6y2" path="res://assets/meshes/asteroid_small.glb" id="1_v5y0t"]
 [ext_resource type="Material" uid="uid://cjtpg6xet41ey" path="res://content/materials/asteroid_surface.tres" id="2_3v4wi"]
 
-[node name="SmallAsteroid" type="Node3D"]
+[node name="SmallAsteroid" type="Node3D" unique_id=824833789]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
-[node name="asteroid_small" parent="." instance=ExtResource("1_v5y0t")]
+[node name="asteroid_small" parent="." unique_id=297693683 instance=ExtResource("1_v5y0t")]
 
-[node name="Icosphere" parent="asteroid_small" index="0"]
+[node name="Icosphere" parent="asteroid_small" index="0" unique_id=980005051]
 material_override = ExtResource("2_3v4wi")
 
 [editable path="asteroid_small"]

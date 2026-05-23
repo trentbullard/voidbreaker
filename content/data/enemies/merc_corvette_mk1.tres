@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyDef" load_steps=5 format=3 uid="uid://bfqfno3bqn0wg"]
+[gd_resource type="Resource" script_class="EnemyDef" format=3 uid="uid://bfqfno3bqn0wg"]
 
 [ext_resource type="Script" uid="uid://bx6wive40u6f" path="res://content/defs/enemy_def.gd" id="1_21rtp"]
 [ext_resource type="Resource" uid="uid://crx8i23qr1hoi" path="res://content/data/factions/mercs.tres" id="2_faction"]

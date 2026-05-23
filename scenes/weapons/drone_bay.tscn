@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c76pe7mu3m65m"]
+[gd_scene format=3 uid="uid://c76pe7mu3m65m"]
 
 [ext_resource type="PackedScene" uid="uid://ddbe4cjcfj4sv" path="res://assets/meshes/drone_bay.glb" id="1_yacj2"]
 
-[node name="DroneBayMk1TurretVisual" type="Node3D"]
+[node name="DroneBayMk1TurretVisual" type="Node3D" unique_id=1486446998]
 
-[node name="Drone Bay Mk I" parent="." instance=ExtResource("1_yacj2")]
+[node name="Drone Bay Mk I" parent="." unique_id=179808791 instance=ExtResource("1_yacj2")]
 
-[node name="Muzzle" type="Marker3D" parent="."]
+[node name="Muzzle" type="Marker3D" parent="." unique_id=1908386603]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25275588, -0.28164244)

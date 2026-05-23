@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MountLoadoutDef" load_steps=8 format=3 uid="uid://cw1vu3pvxa6el"]
+[gd_resource type="Resource" script_class="MountLoadoutDef" format=3 uid="uid://cw1vu3pvxa6el"]
 
 [ext_resource type="Script" uid="uid://dhvgo1sv28rx3" path="res://content/defs/mount_loadout_def.gd" id="1_u4qe2"]
 [ext_resource type="PackedScene" uid="uid://bso2dpcl7d5tx" path="res://scenes/weapons/laser_bolt.tscn" id="2_ph2p8"]

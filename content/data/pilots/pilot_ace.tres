@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PilotDef" load_steps=15 format=3 uid="uid://duj3tgm8uy8n"]
+[gd_resource type="Resource" script_class="PilotDef" format=3 uid="uid://duj3tgm8uy8n"]
 
 [ext_resource type="Script" uid="uid://bcwfpgffm7rus" path="res://content/defs/pilot_def.gd" id="1"]
 [ext_resource type="Resource" uid="uid://c7qhxtfi262nw" path="res://content/data/ships/heavy_bruiser.tres" id="2"]

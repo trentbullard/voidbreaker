@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FactionDef" load_steps=2 format=3 uid="uid://crx8i23qr1hoi"]
+[gd_resource type="Resource" script_class="FactionDef" format=3 uid="uid://crx8i23qr1hoi"]
 
 [ext_resource type="Script" uid="uid://mpuk06fuyvhf" path="res://content/defs/faction_def.gd" id="1_faction_def"]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyDef" load_steps=10 format=3 uid="uid://djvymy6onxxty"]
+[gd_resource type="Resource" script_class="EnemyDef" format=3 uid="uid://djvymy6onxxty"]
 
 [ext_resource type="PackedScene" uid="uid://bevdmyvffaiqo" path="res://scenes/enemies/machine_sentinel_mk1.tscn" id="1_1ocus"]
 [ext_resource type="Script" uid="uid://bx6wive40u6f" path="res://content/defs/enemy_def.gd" id="1_qvaoy"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponDef" load_steps=5 format=3 uid="uid://cfgpg6myjh8p0"]
+[gd_resource type="Resource" script_class="WeaponDef" format=3 uid="uid://cfgpg6myjh8p0"]
 
 [ext_resource type="PackedScene" uid="uid://bso2dpcl7d5tx" path="res://scenes/weapons/laser_bolt.tscn" id="1_eh8h0"]
 [ext_resource type="Script" uid="uid://dby70n1hr4uk3" path="res://content/defs/weapon_def.gd" id="2_gmbgu"]

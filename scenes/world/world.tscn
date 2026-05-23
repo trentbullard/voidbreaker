@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://ppgr7fveqbrd"]
+[gd_scene format=3 uid="uid://ppgr7fveqbrd"]
 
 [ext_resource type="Texture2D" uid="uid://d3x23q2en3ng1" path="res://assets/spheremaps/plain_starfield_1.png" id="1_dphjl"]
 [ext_resource type="Script" uid="uid://bksswhha71raw" path="res://scripts/world/world_bootstrap.gd" id="1_ovomx"]
@@ -48,15 +48,15 @@
 [ext_resource type="Resource" uid="uid://b7qjg75iq2hov" path="res://content/data/weapons/drone_bay_mk1.tres" id="55_554ci"]
 [ext_resource type="Resource" uid="uid://kw3uc16q3yo0" path="res://content/data/weapons/particle_beam_mk1.tres" id="56_hph6x"]
 [ext_resource type="Resource" path="res://content/data/scaling/enemy_combat_scaling_default.tres" id="56_scalingres"]
+[ext_resource type="Script" uid="uid://bcxra4jhp57s3" path="res://scripts/hud/boss_gateway_hud.gd" id="boss_gateway_hud_script"]
+[ext_resource type="Script" uid="uid://l8fhwthjvxuq" path="res://scripts/objectives/boss_gateway_manager.gd" id="boss_gateway_manager_script"]
 [ext_resource type="Script" uid="uid://ciqwfvtmjs36w" path="res://scripts/hud/docking_hud.gd" id="docking_hud_script"]
 [ext_resource type="Script" uid="uid://nc1iigswua3o" path="res://scripts/poi/docking_manager.gd" id="docking_manager_script"]
 [ext_resource type="Script" uid="uid://c7bw4eh6k252" path="res://content/defs/poi_def.gd" id="poi_def_script"]
 [ext_resource type="Script" uid="uid://bnhrcqh8kddw1" path="res://scripts/hud/poi_list_layer.gd" id="poi_list_layer_script"]
-[ext_resource type="PackedScene" path="res://scenes/pois/poi_placeholder.tscn" id="poi_scene"]
+[ext_resource type="PackedScene" uid="uid://cbb0gw1l5yeu3" path="res://scenes/pois/poi_placeholder.tscn" id="poi_scene"]
 [ext_resource type="Script" uid="uid://d1ddx3ctljet4" path="res://systems/spawning/poi_spawner.gd" id="poi_spawner_script"]
 [ext_resource type="PackedScene" uid="uid://vui0na1ujbtt" path="res://scenes/hud/upgrade_menu.tscn" id="upgrade_menu_scene"]
-[ext_resource type="Script" path="res://scripts/objectives/boss_gateway_manager.gd" id="boss_gateway_manager_script"]
-[ext_resource type="Script" path="res://scripts/hud/boss_gateway_hud.gd" id="boss_gateway_hud_script"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sar2w"]
 panorama = ExtResource("1_dphjl")
@@ -184,21 +184,21 @@ font = SubResource("SystemFont_srmg5")
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" unique_id=919962755]
 script = ExtResource("1_ovomx")
 ship_scene = ExtResource("2_6m72w")
 
-[node name="StageRoot" type="Node3D" parent="."]
+[node name="StageRoot" type="Node3D" parent="." unique_id=1201436595]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="StageRoot"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="StageRoot" unique_id=1344664443]
 environment = SubResource("Environment_v5dby")
 
-[node name="Star" type="DirectionalLight3D" parent="StageRoot"]
+[node name="Star" type="DirectionalLight3D" parent="StageRoot" unique_id=811529163]
 light_energy = 2.0
 shadow_enabled = true
 directional_shadow_mode = 0
 
-[node name="Starfield" type="GPUParticles3D" parent="StageRoot"]
+[node name="Starfield" type="GPUParticles3D" parent="StageRoot" unique_id=1842130730]
 amount = 2000
 lifetime = 12.0
 preprocess = 12.0
@@ -209,14 +209,14 @@ process_material = SubResource("ParticleProcessMaterial_dphjl")
 draw_pass_1 = SubResource("QuadMesh_t5ptc")
 script = ExtResource("2_v5dby")
 
-[node name="Spawner" type="Node3D" parent="StageRoot"]
+[node name="Spawner" type="Node3D" parent="StageRoot" unique_id=1268889747]
 script = ExtResource("6_bq33v")
 target_scene = ExtResource("7_j2gmx")
 enemy_scene = ExtResource("6_5qq27")
 ship_path = NodePath("../../Ship")
 spawn_radius = 600.0
 
-[node name="WaveDirector" type="Node" parent="StageRoot"]
+[node name="WaveDirector" type="Node" parent="StageRoot" unique_id=317386197]
 script = ExtResource("7_m114p")
 spawner_path = NodePath("../Spawner")
 wave_timeout_sec = 60.0
@@ -226,30 +226,30 @@ budget_buyer_path = NodePath("../BudgetBuyer")
 enemy_combat_scaling_director_path = NodePath("../EnemyCombatScalingDirector")
 wave_cards = Array[ExtResource("8_wnndm")]([ExtResource("9_26xou")])
 
-[node name="ThreatDirector" type="Node" parent="StageRoot"]
+[node name="ThreatDirector" type="Node" parent="StageRoot" unique_id=183571824]
 script = ExtResource("8_71ii3")
 
-[node name="WaveBudgeter" type="Node" parent="StageRoot"]
+[node name="WaveBudgeter" type="Node" parent="StageRoot" unique_id=732523865]
 script = ExtResource("9_bt7bg")
 
-[node name="EnemyCombatScalingDirector" type="Node" parent="StageRoot"]
+[node name="EnemyCombatScalingDirector" type="Node" parent="StageRoot" unique_id=261690789]
 script = ExtResource("9_scalingdir")
 scaling_def = ExtResource("56_scalingres")
 
-[node name="EnemyCatalog" type="Node" parent="StageRoot"]
+[node name="EnemyCatalog" type="Node" parent="StageRoot" unique_id=2145914352]
 script = ExtResource("10_6hctx")
 enemies = Array[ExtResource("13_jyr8v")]([ExtResource("14_5o5dd"), ExtResource("15_d0ajt"), ExtResource("16_jyr8v"), ExtResource("18_4jq4u"), ExtResource("19_sar2w")])
 
-[node name="TargetCatalog" type="Node" parent="StageRoot"]
+[node name="TargetCatalog" type="Node" parent="StageRoot" unique_id=1303860640]
 script = ExtResource("11_ues17")
 targets = Array[ExtResource("17_fymcc")]([ExtResource("18_lbnhc"), ExtResource("20_5o5dd")])
 
-[node name="BudgetBuyer" type="Node" parent="StageRoot"]
+[node name="BudgetBuyer" type="Node" parent="StageRoot" unique_id=1020572897]
 script = ExtResource("12_xq18t")
 enemy_catalog_path = NodePath("../EnemyCatalog")
 target_catalog_path = NodePath("../TargetCatalog")
 
-[node name="PoiSpawner" type="Node3D" parent="StageRoot"]
+[node name="PoiSpawner" type="Node3D" parent="StageRoot" unique_id=1791432664]
 script = ExtResource("poi_spawner_script")
 ship_path = NodePath("../../Ship")
 poi_scene = ExtResource("poi_scene")
@@ -259,22 +259,22 @@ min_distance_from_player = 1000.0
 poi_defs = Array[ExtResource("poi_def_script")]([SubResource("Resource_5fxch"), SubResource("Resource_kx0xk"), SubResource("Resource_4jq4u")])
 debug_logging = false
 
-[node name="DockingManager" type="Node" parent="StageRoot"]
+[node name="DockingManager" type="Node" parent="StageRoot" unique_id=1952550925]
 script = ExtResource("docking_manager_script")
 ship_path = NodePath("../../Ship")
 poi_spawner_path = NodePath("../PoiSpawner")
 upgrade_menu_path = NodePath("../../UpgradeMenu")
 
-[node name="BossGatewayManager" type="Node" parent="StageRoot"]
+[node name="BossGatewayManager" type="Node" parent="StageRoot" unique_id=455135803]
 script = ExtResource("boss_gateway_manager_script")
 ship_path = NodePath("../../Ship")
 wave_director_path = NodePath("../WaveDirector")
 poi_spawner_path = NodePath("../PoiSpawner")
 docking_manager_path = NodePath("../DockingManager")
 
-[node name="MainMenuOverlay" parent="." instance=ExtResource("29_kx0xk")]
+[node name="MainMenuOverlay" parent="." unique_id=610300732 instance=ExtResource("29_kx0xk")]
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=302519482]
 script = ExtResource("8_1yooq")
 ship_path = NodePath("../Ship")
 wave_director_path = NodePath("../StageRoot/WaveDirector")
@@ -287,7 +287,7 @@ stage_details_label_path = NodePath("ScreenRoot/TopDock/TopRightDock/RunStageDet
 stage_modifiers_label_path = NodePath("ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer/StageModifiers")
 victory_label_path = NodePath("ScreenRoot/VictoryLabel")
 
-[node name="ScreenRoot" type="Control" parent="HUD"]
+[node name="ScreenRoot" type="Control" parent="HUD" unique_id=1710080154]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -296,7 +296,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TopDock" type="MarginContainer" parent="HUD/ScreenRoot"]
+[node name="TopDock" type="MarginContainer" parent="HUD/ScreenRoot" unique_id=1107672702]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -305,28 +305,28 @@ offset_top = 16.0
 offset_right = -16.0
 grow_horizontal = 2
 
-[node name="ScoreLayer" type="Control" parent="HUD/ScreenRoot/TopDock"]
+[node name="ScoreLayer" type="Control" parent="HUD/ScreenRoot/TopDock" unique_id=1475463049]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("13_umvgx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ScreenRoot/TopDock/ScoreLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ScreenRoot/TopDock/ScoreLayer" unique_id=2043034378]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Score" type="Label" parent="HUD/ScreenRoot/TopDock/ScoreLayer/VBoxContainer"]
+[node name="Score" type="Label" parent="HUD/ScreenRoot/TopDock/ScoreLayer/VBoxContainer" unique_id=943175316]
 layout_mode = 2
 text = "Score: 200"
 label_settings = ExtResource("10_m114p")
 
-[node name="Alive" type="Label" parent="HUD/ScreenRoot/TopDock/ScoreLayer/VBoxContainer"]
+[node name="Alive" type="Label" parent="HUD/ScreenRoot/TopDock/ScoreLayer/VBoxContainer" unique_id=1910564679]
 layout_mode = 2
 text = "Enemies: 2 Targets: 1 Total: 3"
 label_settings = ExtResource("10_m114p")
 
-[node name="PoiListLayer" type="Control" parent="HUD/ScreenRoot/TopDock/ScoreLayer/VBoxContainer"]
+[node name="PoiListLayer" type="Control" parent="HUD/ScreenRoot/TopDock/ScoreLayer/VBoxContainer" unique_id=2080991952]
 layout_mode = 2
 script = ExtResource("poi_list_layer_script")
 ship_path = NodePath("../../../../../../Ship")
@@ -334,12 +334,12 @@ poi_spawner_path = NodePath("../../../../../../StageRoot/PoiSpawner")
 docking_manager_path = NodePath("../../../../../../StageRoot/DockingManager")
 label_settings = ExtResource("10_m114p")
 
-[node name="TimerWaveLayer" type="Control" parent="HUD/ScreenRoot/TopDock"]
+[node name="TimerWaveLayer" type="Control" parent="HUD/ScreenRoot/TopDock" unique_id=1561976598]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ScreenRoot/TopDock/TimerWaveLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ScreenRoot/TopDock/TimerWaveLayer" unique_id=280941939]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -350,7 +350,7 @@ offset_bottom = 38.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="TimerLabel" type="Label" parent="HUD/ScreenRoot/TopDock/TimerWaveLayer/VBoxContainer"]
+[node name="TimerLabel" type="Label" parent="HUD/ScreenRoot/TopDock/TimerWaveLayer/VBoxContainer" unique_id=1204911502]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "5:00"
@@ -358,7 +358,7 @@ label_settings = ExtResource("10_m114p")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WaveLabel" type="Label" parent="HUD/ScreenRoot/TopDock/TimerWaveLayer/VBoxContainer"]
+[node name="WaveLabel" type="Label" parent="HUD/ScreenRoot/TopDock/TimerWaveLayer/VBoxContainer" unique_id=1527818211]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Wave 1"
@@ -366,12 +366,12 @@ label_settings = ExtResource("10_m114p")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TopRightDock" type="Control" parent="HUD/ScreenRoot/TopDock"]
+[node name="TopRightDock" type="Control" parent="HUD/ScreenRoot/TopDock" unique_id=13179688]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="RunStageDetailsContainer" type="VBoxContainer" parent="HUD/ScreenRoot/TopDock/TopRightDock"]
+[node name="RunStageDetailsContainer" type="VBoxContainer" parent="HUD/ScreenRoot/TopDock/TopRightDock" unique_id=65242772]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -381,7 +381,7 @@ offset_bottom = 107.0
 grow_horizontal = 0
 alignment = 1
 
-[node name="RunDetails" type="Label" parent="HUD/ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer"]
+[node name="RunDetails" type="Label" parent="HUD/ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer" unique_id=1255677463]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -390,7 +390,7 @@ Stage 1/2"
 label_settings = ExtResource("10_m114p")
 horizontal_alignment = 2
 
-[node name="StageDetails" type="Label" parent="HUD/ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer"]
+[node name="StageDetails" type="Label" parent="HUD/ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer" unique_id=1947036913]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -398,11 +398,11 @@ text = "Perimeter Breach"
 label_settings = ExtResource("10_m114p")
 horizontal_alignment = 2
 
-[node name="HSeparator" type="HSeparator" parent="HUD/ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer"]
+[node name="HSeparator" type="HSeparator" parent="HUD/ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer" unique_id=633554673]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="StageModifiers" type="Label" parent="HUD/ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer"]
+[node name="StageModifiers" type="Label" parent="HUD/ScreenRoot/TopDock/TopRightDock/RunStageDetailsContainer" unique_id=248767424]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -411,7 +411,7 @@ Sensor Static"
 label_settings = ExtResource("10_m114p")
 horizontal_alignment = 2
 
-[node name="VictoryLabel" type="Label" parent="HUD/ScreenRoot"]
+[node name="VictoryLabel" type="Label" parent="HUD/ScreenRoot" unique_id=470948519]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -430,7 +430,7 @@ label_settings = SubResource("LabelSettings_victory")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReticleLayer" type="Control" parent="HUD/ScreenRoot"]
+[node name="ReticleLayer" type="Control" parent="HUD/ScreenRoot" unique_id=912012157]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -440,7 +440,7 @@ grow_vertical = 2
 script = ExtResource("7_gb53w")
 ship_path = NodePath("../../../Ship")
 
-[node name="NameplateLayer" type="Control" parent="HUD/ScreenRoot"]
+[node name="NameplateLayer" type="Control" parent="HUD/ScreenRoot" unique_id=995481445]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -452,7 +452,7 @@ script = ExtResource("9_gb53w")
 nameplate_scene = ExtResource("10_gb53w")
 docking_manager_path = NodePath("../../../StageRoot/DockingManager")
 
-[node name="OffscreenIndicatorLayer" type="Control" parent="HUD/ScreenRoot"]
+[node name="OffscreenIndicatorLayer" type="Control" parent="HUD/ScreenRoot" unique_id=400470915]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -463,7 +463,7 @@ mouse_filter = 2
 script = ExtResource("21_osil")
 ship_path = NodePath("../../../Ship")
 
-[node name="DockingHud" type="Control" parent="HUD/ScreenRoot"]
+[node name="DockingHud" type="Control" parent="HUD/ScreenRoot" unique_id=1699025113]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -480,7 +480,7 @@ script = ExtResource("docking_hud_script")
 docking_manager_path = NodePath("../../../StageRoot/DockingManager")
 label_settings = ExtResource("10_m114p")
 
-[node name="BossGatewayHud" type="Control" parent="HUD/ScreenRoot"]
+[node name="BossGatewayHud" type="Control" parent="HUD/ScreenRoot" unique_id=2092214478]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -497,14 +497,14 @@ script = ExtResource("boss_gateway_hud_script")
 boss_gateway_manager_path = NodePath("../../../StageRoot/BossGatewayManager")
 label_settings = ExtResource("10_m114p")
 
-[node name="EffectsLayer" type="Control" parent="HUD/ScreenRoot"]
+[node name="EffectsLayer" type="Control" parent="HUD/ScreenRoot" unique_id=307325620]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("11_dlabj")
 floating_text_scene = ExtResource("12_srmg5")
 
-[node name="BottomDock" type="MarginContainer" parent="HUD/ScreenRoot"]
+[node name="BottomDock" type="MarginContainer" parent="HUD/ScreenRoot" unique_id=1524868169]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -516,13 +516,13 @@ offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="ShipHud" type="Control" parent="HUD/ScreenRoot/BottomDock"]
+[node name="ShipHud" type="Control" parent="HUD/ScreenRoot/BottomDock" unique_id=1173911959]
 layout_mode = 2
 mouse_filter = 2
 script = ExtResource("11_5qq27")
 back_color = Color(0.24705882, 0.24705882, 0.24705882, 0.75686276)
 
-[node name="AbilitiesContainer" type="HBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud"]
+[node name="AbilitiesContainer" type="HBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud" unique_id=271648691]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -533,14 +533,14 @@ grow_vertical = 0
 theme_override_constants/separation = 20
 alignment = 2
 
-[node name="RepairPanel" type="PanelContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/AbilitiesContainer"]
+[node name="RepairPanel" type="PanelContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/AbilitiesContainer" unique_id=692117632]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_4jq4u")
 
-[node name="RepairLabel" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/AbilitiesContainer/RepairPanel"]
+[node name="RepairLabel" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/AbilitiesContainer/RepairPanel" unique_id=2092492808]
 layout_mode = 2
 size_flags_vertical = 1
 text = "(500)"
@@ -548,7 +548,7 @@ label_settings = SubResource("LabelSettings_1cxds")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="HotkeyLabel" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/AbilitiesContainer/RepairPanel"]
+[node name="HotkeyLabel" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/AbilitiesContainer/RepairPanel" unique_id=348503234]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -557,7 +557,7 @@ label_settings = SubResource("LabelSettings_2m0ga")
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="CooldownLabel" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/AbilitiesContainer/RepairPanel"]
+[node name="CooldownLabel" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/AbilitiesContainer/RepairPanel" unique_id=1021354333]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -565,7 +565,7 @@ text = "0.0"
 label_settings = SubResource("LabelSettings_ovomx")
 vertical_alignment = 2
 
-[node name="ShipStatsContainer" type="VBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud"]
+[node name="ShipStatsContainer" type="VBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud" unique_id=1160018419]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -575,51 +575,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="ShieldHullContainer" type="HBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer"]
+[node name="ShieldHullContainer" type="HBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer" unique_id=1701257338]
 layout_mode = 2
 theme_override_constants/separation = 7
 
-[node name="Hull" type="HBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer"]
+[node name="Hull" type="HBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer" unique_id=834203143]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Value" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer/Hull"]
+[node name="Value" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer/Hull" unique_id=356787102]
 layout_mode = 2
 text = "100/100"
 label_settings = SubResource("LabelSettings_srmg5")
 
-[node name="Bar" type="ProgressBar" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer/Hull"]
+[node name="Bar" type="ProgressBar" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer/Hull" unique_id=2114229645]
 custom_minimum_size = Vector2(20, 100)
 layout_mode = 2
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="Shield" type="HBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer"]
+[node name="Shield" type="HBoxContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer" unique_id=1155512860]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Bar" type="ProgressBar" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer/Shield"]
+[node name="Bar" type="ProgressBar" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer/Shield" unique_id=922799976]
 custom_minimum_size = Vector2(20, 100)
 layout_mode = 2
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="Value" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer/Shield"]
+[node name="Value" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/ShieldHullContainer/Shield" unique_id=1892727373]
 layout_mode = 2
 text = "100/100"
 label_settings = SubResource("LabelSettings_dlabj")
 
-[node name="VelocityContainer" type="CenterContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer"]
+[node name="VelocityContainer" type="CenterContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer" unique_id=1439923427]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/VelocityContainer"]
+[node name="Label" type="Label" parent="HUD/ScreenRoot/BottomDock/ShipHud/ShipStatsContainer/VelocityContainer" unique_id=1060097923]
 layout_mode = 2
 text = "180m/s"
 label_settings = SubResource("LabelSettings_umvgx")
 
-[node name="WeaponsContainer" type="HFlowContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud"]
+[node name="WeaponsContainer" type="HFlowContainer" parent="HUD/ScreenRoot/BottomDock/ShipHud" unique_id=432116093]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -631,44 +631,44 @@ grow_vertical = 0
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 4
 
-[node name="DebugWaveHUD" type="MarginContainer" parent="HUD/ScreenRoot/BottomDock"]
+[node name="DebugWaveHUD" type="MarginContainer" parent="HUD/ScreenRoot/BottomDock" unique_id=1077086752]
 visible = false
 layout_mode = 2
 script = ExtResource("19_wbwoo")
 wave_director_path = NodePath("../../../../StageRoot/WaveDirector")
 
-[node name="Label" type="Label" parent="HUD/ScreenRoot/BottomDock/DebugWaveHUD"]
+[node name="Label" type="Label" parent="HUD/ScreenRoot/BottomDock/DebugWaveHUD" unique_id=611331738]
 layout_mode = 2
 
-[node name="PopupLayer" type="Control" parent="HUD/ScreenRoot"]
+[node name="PopupLayer" type="Control" parent="HUD/ScreenRoot" unique_id=959837152]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="AlertLayer" type="Control" parent="HUD/ScreenRoot"]
+[node name="AlertLayer" type="Control" parent="HUD/ScreenRoot" unique_id=1498080951]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PauseMenu" parent="." instance=ExtResource("32_5o5dd")]
+[node name="PauseMenu" parent="." unique_id=1519745253 instance=ExtResource("32_5o5dd")]
 
-[node name="UpgradeMenu" parent="." instance=ExtResource("upgrade_menu_scene")]
+[node name="UpgradeMenu" parent="." unique_id=1207919512 instance=ExtResource("upgrade_menu_scene")]
 available_weapons = Array[ExtResource("20_j0rhc")]([ExtResource("53_7rtjl"), ExtResource("54_phx5y"), ExtResource("55_554ci"), ExtResource("56_hph6x")])
 
-[node name="DamageOverlay" type="CanvasLayer" parent="."]
+[node name="DamageOverlay" type="CanvasLayer" parent="." unique_id=705285097]
 
-[node name="FrontRect" type="TextureRect" parent="DamageOverlay"]
+[node name="FrontRect" type="TextureRect" parent="DamageOverlay" unique_id=1964191294]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="BackRect" type="TextureRect" parent="DamageOverlay"]
+[node name="BackRect" type="TextureRect" parent="DamageOverlay" unique_id=1213882489]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="LeftRect" type="TextureRect" parent="DamageOverlay"]
+[node name="LeftRect" type="TextureRect" parent="DamageOverlay" unique_id=484668886]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="RightRect" type="TextureRect" parent="DamageOverlay"]
+[node name="RightRect" type="TextureRect" parent="DamageOverlay" unique_id=370872104]
 offset_right = 40.0
 offset_bottom = 40.0

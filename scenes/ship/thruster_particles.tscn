@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj012u42vcetv"]
+[gd_scene format=3 uid="uid://bj012u42vcetv"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xfxds"]
 emission_shape_scale = Vector3(0.2, 0.2, 0.1)
@@ -18,7 +18,7 @@ emission_energy_multiplier = 1.5
 material = SubResource("StandardMaterial3D_q6f52")
 size = Vector3(0.1, 0.1, 0.2)
 
-[node name="ThrusterParticles1" type="GPUParticles3D"]
+[node name="ThrusterParticles1" type="GPUParticles3D" unique_id=308507473]
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_xfxds")
 draw_pass_1 = SubResource("BoxMesh_hj22y")

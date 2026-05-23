@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bso2dpcl7d5tx"]
+[gd_scene format=3 uid="uid://bso2dpcl7d5tx"]
 
 [ext_resource type="Script" uid="uid://c1b2hixwpa6y6" path="res://scripts/projectile/projectile.gd" id="1_rjjob"]
 [ext_resource type="Material" uid="uid://ckmrjpewic1t6" path="res://content/materials/bad_laser.tres" id="2_i828x"]
@@ -7,13 +7,13 @@
 material = ExtResource("2_i828x")
 size = Vector3(0.6, 0.6, 15)
 
-[node name="LaserBolt" type="Node3D"]
+[node name="LaserBolt" type="Node3D" unique_id=260163087]
 script = ExtResource("1_rjjob")
 
-[node name="BoltMesh" type="MeshInstance3D" parent="."]
+[node name="BoltMesh" type="MeshInstance3D" parent="." unique_id=413775361]
 layers = 3
 mesh = SubResource("PrismMesh_i828x")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1018275220]
 light_color = Color(1, 0.48452926, 0.3491902, 1)
 omni_range = 2.0

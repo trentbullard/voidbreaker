@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="MetaUpgradeCatalog" load_steps=19 format=3]
+[gd_resource type="Resource" script_class="MetaUpgradeCatalog" format=3 uid="uid://b733bbj02badd"]
 
-[ext_resource type="Script" path="res://content/defs/meta_upgrade_catalog.gd" id="1_catalog"]
+[ext_resource type="Script" uid="uid://8lyssxytjg7t" path="res://content/defs/meta_upgrade_catalog.gd" id="1_catalog"]
 [ext_resource type="Script" uid="uid://bs83khy1we154" path="res://content/defs/meta_upgrade_def.gd" id="2_meta_def"]
 [ext_resource type="Resource" uid="uid://c5x43f4s4dn5i" path="res://content/data/meta_upgrades/meta_upgrade_flux_infused_fuel_chemistry.tres" id="3_fuel"]
 [ext_resource type="Resource" uid="uid://b08occ0wm3jxc" path="res://content/data/meta_upgrades/meta_upgrade_auxiliary_bay_compartment.tres" id="4_bay"]

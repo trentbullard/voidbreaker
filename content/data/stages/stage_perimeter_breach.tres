@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StageDef" load_steps=23 format=3 uid="uid://nwgfpc1w8myu"]
+[gd_resource type="Resource" script_class="StageDef" format=3 uid="uid://nwgfpc1w8myu"]
 
 [ext_resource type="Script" uid="uid://ccxfqxark46f6" path="res://content/defs/stage_def.gd" id="1_stage_def"]
 [ext_resource type="Script" uid="uid://c0baui7bplv2c" path="res://content/defs/stage_modifier_def.gd" id="1_v303b"]

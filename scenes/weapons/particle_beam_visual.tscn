@@ -1,37 +1,31 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene format=3 uid="uid://bdvj7ca8tow0a"]
 
 [ext_resource type="Script" path="res://scripts/weapons/beam_visual_controller.gd" id="1_h1e7x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_core"]
 transparency = 1
 blend_mode = 1
-shading_mode = 0
 cull_mode = 2
+shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.82, 0.96, 1, 0.88)
-emission_enabled = true
-emission = Color(0.82, 0.96, 1, 1)
-emission_energy_multiplier = 4.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_glow"]
 transparency = 1
 blend_mode = 1
-shading_mode = 0
 cull_mode = 2
+shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.22, 0.78, 1, 0.3)
-emission_enabled = true
-emission = Color(0.22, 0.78, 1, 1)
-emission_energy_multiplier = 3.2
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_beam"]
 emission_shape = 3
 emission_box_extents = Vector3(0.08, 0.08, 1)
 direction = Vector3(0, 0, -1)
 spread = 10.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 0.4
 initial_velocity_max = 1.2
+gravity = Vector3(0, 0, 0)
 scale_min = 0.25
 scale_max = 0.55
 color = Color(0.58, 0.9, 1, 0.65)
@@ -39,12 +33,9 @@ color = Color(0.58, 0.9, 1, 0.65)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_beam_particle"]
 transparency = 1
 blend_mode = 1
-shading_mode = 0
 cull_mode = 2
+shading_mode = 0
 albedo_color = Color(0.55, 0.88, 1, 0.9)
-emission_enabled = true
-emission = Color(0.55, 0.88, 1, 1)
-emission_energy_multiplier = 2.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_beam_particle"]
 material = SubResource("StandardMaterial3D_beam_particle")
@@ -53,12 +44,9 @@ size = Vector3(0.035, 0.035, 0.06)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_impact"]
 transparency = 1
 blend_mode = 1
-shading_mode = 0
 cull_mode = 2
+shading_mode = 0
 albedo_color = Color(0.92, 0.98, 1, 0.52)
-emission_enabled = true
-emission = Color(0.92, 0.98, 1, 1)
-emission_energy_multiplier = 2.8
 
 [sub_resource type="SphereMesh" id="SphereMesh_impact"]
 material = SubResource("StandardMaterial3D_impact")
@@ -70,9 +58,9 @@ emission_shape = 1
 emission_sphere_radius = 0.08
 direction = Vector3(0, 0, -1)
 spread = 30.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 0.35
 initial_velocity_max = 1.8
+gravity = Vector3(0, 0, 0)
 scale_min = 0.35
 scale_max = 0.8
 color = Color(0.85, 0.97, 1, 0.85)
@@ -81,34 +69,34 @@ color = Color(0.85, 0.97, 1, 0.85)
 material = SubResource("StandardMaterial3D_beam_particle")
 size = Vector3(0.04, 0.04, 0.08)
 
-[node name="ParticleBeamVisual" type="Node3D"]
+[node name="ParticleBeamVisual" type="Node3D" unique_id=353922645]
 script = ExtResource("1_h1e7x")
 
-[node name="Core" type="MeshInstance3D" parent="."]
+[node name="Core" type="MeshInstance3D" parent="." unique_id=47307357]
 material_override = SubResource("StandardMaterial3D_core")
 cast_shadow = 0
 
-[node name="Glow" type="MeshInstance3D" parent="."]
+[node name="Glow" type="MeshInstance3D" parent="." unique_id=2032217904]
 material_override = SubResource("StandardMaterial3D_glow")
 cast_shadow = 0
 
-[node name="BeamPivot" type="Node3D" parent="."]
+[node name="BeamPivot" type="Node3D" parent="." unique_id=681306370]
 
-[node name="BeamParticles" type="GPUParticles3D" parent="BeamPivot"]
+[node name="BeamParticles" type="GPUParticles3D" parent="BeamPivot" unique_id=677280159]
 amount = 10
 lifetime = 0.28
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_beam")
 draw_pass_1 = SubResource("BoxMesh_beam_particle")
 
-[node name="Impact" type="Node3D" parent="."]
+[node name="Impact" type="Node3D" parent="." unique_id=619654508]
 
-[node name="ImpactFlare" type="MeshInstance3D" parent="Impact"]
-mesh = SubResource("SphereMesh_impact")
+[node name="ImpactFlare" type="MeshInstance3D" parent="Impact" unique_id=978952649]
 material_override = SubResource("StandardMaterial3D_impact")
 cast_shadow = 0
+mesh = SubResource("SphereMesh_impact")
 
-[node name="ImpactParticles" type="GPUParticles3D" parent="Impact"]
+[node name="ImpactParticles" type="GPUParticles3D" parent="Impact" unique_id=364613749]
 amount = 6
 lifetime = 0.22
 local_coords = true

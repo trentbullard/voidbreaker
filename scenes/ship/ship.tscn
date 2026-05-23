@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsm2da0co8h01"]
+[gd_scene format=3 uid="uid://bsm2da0co8h01"]
 
 [ext_resource type="Script" uid="uid://ijoiya8g5w2t" path="res://scripts/ship/ship.gd" id="1_dkinh"]
 [ext_resource type="PackedScene" uid="uid://yo2mi8h7ihfj" path="res://scenes/explosion.tscn" id="2_0s5ox"]
@@ -23,60 +23,60 @@ size = Vector3(1.5, 0.5, 4)
 [sub_resource type="SphereShape3D" id="SphereShape3D_iyjb8"]
 radius = 200.0
 
-[node name="Ship" type="RigidBody3D"]
+[node name="Ship" type="RigidBody3D" unique_id=458031038]
 collision_mask = 5
 gravity_scale = 0.0
 script = ExtResource("1_dkinh")
 loadout = ExtResource("2_37jfo")
 explosion_scene = ExtResource("2_0s5ox")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1579869707]
 shape = SubResource("BoxShape3D_2l2hl")
 debug_color = Color(0, 0.60038817, 0.70000815, 0)
 debug_fill = false
 
-[node name="VisualRoot" type="Node3D" parent="." node_paths=PackedStringArray("ship")]
+[node name="VisualRoot" type="Node3D" parent="." unique_id=1440885286 node_paths=PackedStringArray("ship")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.465335)
 script = ExtResource("2_dh1m8")
 ship = NodePath("..")
 
-[node name="ControllerFlightController" type="Node" parent="."]
+[node name="ControllerFlightController" type="Node" parent="." unique_id=410800793]
 script = ExtResource("6_r75st")
 
-[node name="MouseFlightController" type="Node" parent="." node_paths=PackedStringArray("ship")]
+[node name="MouseFlightController" type="Node" parent="." unique_id=323107835 node_paths=PackedStringArray("ship")]
 script = ExtResource("2_u5c2e")
 ship = NodePath("..")
 
-[node name="StatAggregator" type="Node" parent="."]
+[node name="StatAggregator" type="Node" parent="." unique_id=1373990192]
 script = ExtResource("8_8ks32")
 
-[node name="TurretController" type="Node3D" parent="." node_paths=PackedStringArray("detector", "detector_shape")]
+[node name="TurretController" type="Node3D" parent="." unique_id=567608961 node_paths=PackedStringArray("detector", "detector_shape")]
 script = ExtResource("6_37jfo")
 detector = NodePath("Detector")
 detector_shape = NodePath("Detector/CollisionShape3D")
 detection_radius = 1000.0
 assign_mode = 2
 
-[node name="Detector" type="Area3D" parent="TurretController"]
+[node name="Detector" type="Area3D" parent="TurretController" unique_id=448689979]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TurretController/Detector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TurretController/Detector" unique_id=1145118788]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007508278, 0.014812231, 0.013970852)
 shape = SubResource("SphereShape3D_iyjb8")
 
-[node name="HardpointManager" type="Node3D" parent="TurretController"]
+[node name="HardpointManager" type="Node3D" parent="TurretController" unique_id=1939290512]
 script = ExtResource("12_8ks32")
 assembly_scene = ExtResource("10_0ipbl")
 policy = ExtResource("11_8ks32")
 
-[node name="CockpitSocket" type="Marker3D" parent="."]
+[node name="CockpitSocket" type="Marker3D" parent="." unique_id=1239260563]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.6)
 visible = false
 
-[node name="CameraPivot" type="Marker3D" parent="."]
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=1402626692]
 
-[node name="CameraRig" type="Node3D" parent="CameraPivot" node_paths=PackedStringArray("ship", "camera")]
+[node name="CameraRig" type="Node3D" parent="CameraPivot" unique_id=1024385976 node_paths=PackedStringArray("ship", "camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 script = ExtResource("2_c54or")
 ship = NodePath("../..")
@@ -85,11 +85,11 @@ height_offset = 5.0
 distance_offset = 15.0
 la_gain = -0.5
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot/CameraRig"]
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/CameraRig" unique_id=326838491]
 current = true
 far = 30000.0
 
-[node name="CameraLight" type="OmniLight3D" parent="CameraPivot/CameraRig/Camera3D"]
+[node name="CameraLight" type="OmniLight3D" parent="CameraPivot/CameraRig/Camera3D" unique_id=1958176850]
 transform = Transform3D(1, 0, 0, 0, 0.99044216, 0.13792859, 0, -0.13792859, 0.99044216, 5.343026, 2.8349524, -4.6635275)
 light_color = Color(0.7977378, 0.7977378, 0.7977378, 1)
 light_energy = 1.5
@@ -98,24 +98,24 @@ shadow_caster_mask = 4293918721
 omni_range = 40.0
 omni_attenuation = -0.5
 
-[node name="Audio" type="Node3D" parent="."]
+[node name="Audio" type="Node3D" parent="." unique_id=950631971]
 
-[node name="ShieldHitAudio" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="ShieldHitAudio" type="AudioStreamPlayer3D" parent="Audio" unique_id=719276165]
 stream = ExtResource("13_twuwu")
 attenuation_model = 3
 max_polyphony = 10
 
-[node name="HullHitAudio" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="HullHitAudio" type="AudioStreamPlayer3D" parent="Audio" unique_id=2123760587]
 stream = ExtResource("14_fvlwm")
 attenuation_model = 3
 max_polyphony = 10
 
-[node name="ShieldLowAlarm" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="ShieldLowAlarm" type="AudioStreamPlayer3D" parent="Audio" unique_id=925380858]
 stream = ExtResource("15_xd3yr")
 attenuation_model = 3
 volume_db = -4.0
 
-[node name="HullLowAlarm" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="HullLowAlarm" type="AudioStreamPlayer3D" parent="Audio" unique_id=314865244]
 stream = ExtResource("16_m5j5p")
 attenuation_model = 3
 volume_db = -4.0

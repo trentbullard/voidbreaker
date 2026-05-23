@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PilotDef" load_steps=14 format=3 uid="uid://bgneuar8lljjs"]
+[gd_resource type="Resource" script_class="PilotDef" format=3 uid="uid://bgneuar8lljjs"]
 
 [ext_resource type="Script" uid="uid://bcwfpgffm7rus" path="res://content/defs/pilot_def.gd" id="1_jc072"]
 [ext_resource type="Resource" uid="uid://crfe5wom1uro4" path="res://content/data/ships/drone_carrier.tres" id="2_jlq5g"]

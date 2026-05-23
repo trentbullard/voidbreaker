@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponDef" load_steps=6 format=3 uid="uid://dvy0gac2vg1b6"]
+[gd_resource type="Resource" script_class="WeaponDef" format=3 uid="uid://dvy0gac2vg1b6"]
 
 [ext_resource type="Script" uid="uid://dby70n1hr4uk3" path="res://content/defs/weapon_def.gd" id="1_3vaxh"]
 [ext_resource type="PackedScene" uid="uid://ml5cr05cbn68" path="res://scenes/weapons/projectile.tscn" id="1_s51ta"]

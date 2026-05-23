@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyDef" load_steps=10 format=3 uid="uid://b16mb2kqfd8ru"]
+[gd_resource type="Resource" script_class="EnemyDef" format=3 uid="uid://b16mb2kqfd8ru"]
 
 [ext_resource type="PackedScene" uid="uid://l62gx0wmdeq1" path="res://scenes/enemies/machine_coremind_mk1.tscn" id="1_okvwc"]
 [ext_resource type="Script" uid="uid://bx6wive40u6f" path="res://content/defs/enemy_def.gd" id="2_kh6w4"]

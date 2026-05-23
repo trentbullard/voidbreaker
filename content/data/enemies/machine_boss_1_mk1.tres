@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyBossDef" load_steps=7 format=3 uid="uid://0c4ms8htkafv"]
+[gd_resource type="Resource" script_class="EnemyBossDef" format=3 uid="uid://0c4ms8htkafv"]
 
 [ext_resource type="Script" uid="uid://co4k1ag8uvqgp" path="res://content/defs/enemy_boss_def.gd" id="1_boss_def"]
 [ext_resource type="Resource" uid="uid://u118lh0nmv2k" path="res://content/data/factions/machines.tres" id="2_faction"]
 [ext_resource type="Resource" uid="uid://bhqg1b3rxeh3h" path="res://content/data/enemy_roles/bruiser.tres" id="3_role"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/enemy_boss.tscn" id="4_actor_scene"]
+[ext_resource type="PackedScene" uid="uid://b4pn8gbtfn2u2" path="res://scenes/enemies/enemy_boss.tscn" id="4_actor_scene"]
 [ext_resource type="PackedScene" uid="uid://ce8s25qh3un6e" path="res://scenes/enemies/machine_boss_1_mk1.tscn" id="5_model_scene"]
 [ext_resource type="Resource" uid="uid://dvthmxrbwmjw" path="res://content/data/boss_movement/machine_boss_1_movement.tres" id="6_movement"]
 

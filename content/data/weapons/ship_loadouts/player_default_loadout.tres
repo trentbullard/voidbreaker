@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShipLoadoutDef" load_steps=4 format=3 uid="uid://bmjdosjus5db0"]
+[gd_resource type="Resource" script_class="ShipLoadoutDef" format=3 uid="uid://bmjdosjus5db0"]
 
 [ext_resource type="Script" uid="uid://dhvgo1sv28rx3" path="res://content/defs/mount_loadout_def.gd" id="1_bndi8"]
 [ext_resource type="Resource" uid="uid://bwex6asskxuot" path="res://content/data/weapons/mount_loadouts/pulse_default.tres" id="2_6d7rx"]

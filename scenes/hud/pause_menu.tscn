@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dywsechusg01y"]
+[gd_scene format=3 uid="uid://dywsechusg01y"]
 
 [ext_resource type="Script" uid="uid://bapsjbior1dq4" path="res://scripts/hud/pause_menu.gd" id="1_xxxx0"]
 [ext_resource type="FontFile" uid="uid://dtkmmkanjxyxd" path="res://assets/fonts/Orbitron/Orbitron-Regular.ttf" id="2_5h01g"]
@@ -44,11 +44,11 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="PauseMenu" type="CanvasLayer"]
+[node name="PauseMenu" type="CanvasLayer" unique_id=433268936]
 layer = 2
 script = ExtResource("1_xxxx0")
 
-[node name="ScreenRoot" type="Control" parent="."]
+[node name="ScreenRoot" type="Control" parent="." unique_id=752572147]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +56,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dim" type="ColorRect" parent="ScreenRoot"]
+[node name="Dim" type="ColorRect" parent="ScreenRoot" unique_id=267177651]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5)
 
-[node name="CenterContainer" type="CenterContainer" parent="ScreenRoot"]
+[node name="CenterContainer" type="CenterContainer" parent="ScreenRoot" unique_id=1606785704]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,10 +73,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="ScreenRoot/CenterContainer"]
+[node name="VBox" type="VBoxContainer" parent="ScreenRoot/CenterContainer" unique_id=182227400]
 layout_mode = 2
 
-[node name="Resume" type="Button" parent="ScreenRoot/CenterContainer/VBox"]
+[node name="Resume" type="Button" parent="ScreenRoot/CenterContainer/VBox" unique_id=376462362]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../StatPanel")
 focus_neighbor_bottom = NodePath("../Restart")
@@ -84,7 +84,7 @@ focus_next = NodePath("../Restart")
 theme = SubResource("Theme_wiae1")
 text = "Resume"
 
-[node name="Restart" type="Button" parent="ScreenRoot/CenterContainer/VBox"]
+[node name="Restart" type="Button" parent="ScreenRoot/CenterContainer/VBox" unique_id=1032932810]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../StatPanel")
 focus_neighbor_top = NodePath("../Resume")
@@ -94,7 +94,7 @@ focus_previous = NodePath("../Resume")
 theme = SubResource("Theme_cgdix")
 text = "Restart"
 
-[node name="MainMenu" type="Button" parent="ScreenRoot/CenterContainer/VBox"]
+[node name="MainMenu" type="Button" parent="ScreenRoot/CenterContainer/VBox" unique_id=740124507]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../StatPanel")
 focus_neighbor_top = NodePath("../Restart")
@@ -104,7 +104,7 @@ focus_previous = NodePath("../Restart")
 theme = SubResource("Theme_u2ajk")
 text = "Main Menu"
 
-[node name="Quit" type="Button" parent="ScreenRoot/CenterContainer/VBox"]
+[node name="Quit" type="Button" parent="ScreenRoot/CenterContainer/VBox" unique_id=913799529]
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../StatPanel")
 focus_neighbor_top = NodePath("../MainMenu")
@@ -112,7 +112,7 @@ focus_previous = NodePath("../MainMenu")
 theme = SubResource("Theme_46l5v")
 text = "Quit"
 
-[node name="StatPanel" type="ScrollContainer" parent="ScreenRoot"]
+[node name="StatPanel" type="ScrollContainer" parent="ScreenRoot" unique_id=1899985816]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -132,7 +132,7 @@ draw_focus_border = true
 horizontal_scroll_mode = 0
 script = ExtResource("2_stat_panel")
 
-[node name="StatContainer" type="VBoxContainer" parent="ScreenRoot/StatPanel"]
+[node name="StatContainer" type="VBoxContainer" parent="ScreenRoot/StatPanel" unique_id=1711965833]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

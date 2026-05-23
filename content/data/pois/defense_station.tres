@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PoiDef" load_steps=2 format=3 uid="uid://sa2sbk3wdc8b"]
+[gd_resource type="Resource" script_class="PoiDef" format=3 uid="uid://sa2sbk3wdc8b"]
 
 [ext_resource type="Script" uid="uid://c7bw4eh6k252" path="res://content/defs/poi_def.gd" id="1_poi"]
 

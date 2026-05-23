@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckqimj36cc5fj"]
+[gd_scene format=3 uid="uid://ckqimj36cc5fj"]
 
 [ext_resource type="PackedScene" uid="uid://h581safggif" path="res://assets/meshes/medium_wreck.glb" id="1_dwa8i"]
 
@@ -21,11 +21,11 @@ billboard_mode = 2
 material = SubResource("StandardMaterial3D_1yke4")
 size = Vector2(0.1, 0.1)
 
-[node name="MediumWreck" type="Node3D"]
+[node name="MediumWreck" type="Node3D" unique_id=1281123435]
 
-[node name="medium_wreck" parent="." instance=ExtResource("1_dwa8i")]
+[node name="medium_wreck" parent="." unique_id=1468576524 instance=ExtResource("1_dwa8i")]
 
-[node name="TopElectricity" type="GPUParticles3D" parent="medium_wreck"]
+[node name="TopElectricity" type="GPUParticles3D" parent="medium_wreck" unique_id=108266206]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9488864, 8.922875, 2.3039894)
 lifetime = 0.18000000000000002
 randomness = 1.0
@@ -33,7 +33,7 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_dwa8i")
 draw_pass_1 = SubResource("QuadMesh_2g0xj")
 
-[node name="BottomElectricity" type="GPUParticles3D" parent="medium_wreck"]
+[node name="BottomElectricity" type="GPUParticles3D" parent="medium_wreck" unique_id=830951737]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9318895, -7.246059, -0.5612271)
 amount = 10
 lifetime = 0.18000000000000002

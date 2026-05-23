@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MetaUpgradeDef" load_steps=5 format=3 uid="uid://doly3jo8ewn0y"]
+[gd_resource type="Resource" script_class="MetaUpgradeDef" format=3 uid="uid://doly3jo8ewn0y"]
 
 [ext_resource type="Script" uid="uid://c7mxb2uqowqsm" path="res://content/defs/stat_modifier_def.gd" id="1_lc2tc"]
 [ext_resource type="Script" uid="uid://bs83khy1we154" path="res://content/defs/meta_upgrade_def.gd" id="2_45va3"]

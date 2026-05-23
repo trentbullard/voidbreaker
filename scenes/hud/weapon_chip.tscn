@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctscf7ldj06e5"]
+[gd_scene format=3 uid="uid://ctscf7ldj06e5"]
 
-[ext_resource type="Script" path="res://scripts/hud/weapon_chip.gd" id="1_k08wr"]
+[ext_resource type="Script" uid="uid://ceo55l3oc08r0" path="res://scripts/hud/weapon_chip.gd" id="1_k08wr"]
 
-[node name="WeaponChip" type="Control"]
+[node name="WeaponChip" type="Control" unique_id=457649291]
 custom_minimum_size = Vector2(148, 64)
 layout_mode = 3
 anchors_preset = 0
@@ -11,7 +11,7 @@ offset_bottom = 64.0
 mouse_filter = 2
 script = ExtResource("1_k08wr")
 
-[node name="ContentMargin" type="MarginContainer" parent="."]
+[node name="ContentMargin" type="MarginContainer" parent="." unique_id=1016814030]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,29 +23,29 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBox" type="VBoxContainer" parent="ContentMargin"]
+[node name="VBox" type="VBoxContainer" parent="ContentMargin" unique_id=2058213519]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
 
-[node name="TopRow" type="HBoxContainer" parent="ContentMargin/VBox"]
+[node name="TopRow" type="HBoxContainer" parent="ContentMargin/VBox" unique_id=13384998]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Icon" type="ColorRect" parent="ContentMargin/VBox/TopRow"]
+[node name="Icon" type="ColorRect" parent="ContentMargin/VBox/TopRow" unique_id=987003474]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 color = Color(0.25, 0.82, 1, 1)
 
-[node name="NameLabel" type="Label" parent="ContentMargin/VBox/TopRow"]
+[node name="NameLabel" type="Label" parent="ContentMargin/VBox/TopRow" unique_id=1208265983]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
 vertical_alignment = 1
 clip_text = true
 
-[node name="ChargeLabel" type="Label" parent="ContentMargin/VBox"]
+[node name="ChargeLabel" type="Label" parent="ContentMargin/VBox" unique_id=227653663]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3

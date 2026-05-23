@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="PilotUnlockRequirement" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="PilotUnlockRequirement" format=3 uid="uid://dde6q3ldhptqg"]
 
-[ext_resource type="Script" path="res://content/defs/pilot_unlock_requirement.gd" id="1"]
+[ext_resource type="Script" uid="uid://01gohq2rb404" path="res://content/defs/pilot_unlock_requirement.gd" id="1"]
 
 [resource]
 script = ExtResource("1")
-stat = 5
 minimum_value = 10
 source_pilot_id = &"rookie"

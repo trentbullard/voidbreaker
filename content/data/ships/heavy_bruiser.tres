@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShipDef" load_steps=33 format=3 uid="uid://c7qhxtfi262nw"]
+[gd_resource type="Resource" script_class="ShipDef" format=3 uid="uid://c7qhxtfi262nw"]
 
 [ext_resource type="Script" uid="uid://bvxxmlbxopb4b" path="res://content/defs/ship_def.gd" id="1"]
 [ext_resource type="Script" uid="uid://dhvgo1sv28rx3" path="res://content/defs/mount_loadout_def.gd" id="2_4xy8s"]

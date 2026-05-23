@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://icnhxdf4gt2c"]
+[gd_scene format=3 uid="uid://icnhxdf4gt2c"]
 
 [ext_resource type="FontFile" uid="uid://b2akoj58tcs10" path="res://assets/fonts/Oxanium/Oxanium-Light.ttf" id="1_wligs"]
 
@@ -8,21 +8,21 @@ font_size = 20
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Nameplate" type="MarginContainer"]
+[node name="Nameplate" type="MarginContainer" unique_id=906207848]
 offset_right = 1.0
 offset_bottom = 19.0
 mouse_filter = 2
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="HBox" type="HBoxContainer" parent="." unique_id=1231360185]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="StateIndicator" type="ColorRect" parent="HBox"]
+[node name="StateIndicator" type="ColorRect" parent="HBox" unique_id=330526878]
 visible = false
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
 color = Color(0.2, 0.95, 1, 1)
 
-[node name="Label" type="Label" parent="HBox"]
+[node name="Label" type="Label" parent="HBox" unique_id=399292766]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_wligs")

@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="WaveCard" load_steps=6 format=3 uid="uid://cem52uptcff4c"]
+[gd_resource type="Resource" script_class="WaveCard" format=3 uid="uid://cem52uptcff4c"]
 
 [ext_resource type="Script" uid="uid://dwo3qna7vo5nk" path="res://content/defs/wave_card.gd" id="1_7kpsk"]
 [ext_resource type="Script" uid="uid://c7mxb2uqowqsm" path="res://content/defs/stat_modifier_def.gd" id="1_ox7ki"]
-[ext_resource type="Resource" path="res://content/data/enemy_roles/brawler.tres" id="2_primary_role"]
-[ext_resource type="Resource" path="res://content/data/enemy_roles/scout.tres" id="3_secondary_role"]
-[ext_resource type="Resource" path="res://content/data/enemy_roles/suppressor.tres" id="4_support_role"]
+[ext_resource type="Resource" uid="uid://bajmdg1wdxwtk" path="res://content/data/enemy_roles/brawler.tres" id="2_primary_role"]
+[ext_resource type="Resource" uid="uid://gxc0snl6efky" path="res://content/data/enemy_roles/scout.tres" id="3_secondary_role"]
+[ext_resource type="Resource" uid="uid://b4wfqd7je5blm" path="res://content/data/enemy_roles/suppressor.tres" id="4_support_role"]
 
 [resource]
 script = ExtResource("1_7kpsk")

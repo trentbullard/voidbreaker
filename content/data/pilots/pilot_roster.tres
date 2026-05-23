@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PilotRoster" load_steps=6 format=3 uid="uid://cgc248sqmyo6r"]
+[gd_resource type="Resource" script_class="PilotRoster" format=3 uid="uid://cgc248sqmyo6r"]
 
 [ext_resource type="Script" uid="uid://r10cxyoenu0l" path="res://content/defs/pilot_roster.gd" id="1"]
 [ext_resource type="Script" uid="uid://bcwfpgffm7rus" path="res://content/defs/pilot_def.gd" id="1_1lpqg"]

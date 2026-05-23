@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtnutlcuxr4ys"]
+[gd_scene format=3 uid="uid://dtnutlcuxr4ys"]
 
 [ext_resource type="Script" uid="uid://dfmvya8pot7y0" path="res://scripts/drops/nanobot_swarm.gd" id="1_k4eqp"]
 
@@ -38,7 +38,7 @@ billboard_mode = 1
 [sub_resource type="PointMesh" id="PointMesh_jifgu"]
 material = SubResource("StandardMaterial3D_72fs5")
 
-[node name="NanobotSwarm" type="GPUParticles3D" node_paths=PackedStringArray("particles", "attractor")]
+[node name="NanobotSwarm" type="GPUParticles3D" unique_id=1197649539 node_paths=PackedStringArray("particles", "attractor")]
 amount = 1000
 lifetime = 2.0
 visibility_aabb = AABB(-1000, -1000, -1000, 2000, 2000, 2000)
@@ -48,5 +48,5 @@ script = ExtResource("1_k4eqp")
 particles = NodePath(".")
 attractor = NodePath("GPUParticlesAttractorSphere3D")
 
-[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="."]
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="." unique_id=36595440]
 radius = 12.0

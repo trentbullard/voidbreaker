@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqq631rq27m52"]
+[gd_scene format=3 uid="uid://bqq631rq27m52"]
 
 [ext_resource type="Material" uid="uid://cnxx4vml8k406" path="res://content/materials/black_metal.tres" id="1_lj0fu"]
 [ext_resource type="Script" uid="uid://y4soej1bx3we" path="res://scripts/weapons/laser_turret_visual_controller.gd" id="1_pb7av"]
@@ -46,45 +46,45 @@ top_radius = 0.2
 bottom_radius = 0.2
 height = 0.75
 
-[node name="LaserMk1TurretVisual" type="Node3D"]
+[node name="LaserMk1TurretVisual" type="Node3D" unique_id=138514320]
 script = ExtResource("1_pb7av")
 max_strength = 2.0
 
-[node name="Barrel" type="MeshInstance3D" parent="."]
+[node name="Barrel" type="MeshInstance3D" parent="." unique_id=470545285]
 transform = Transform3D(1, 0, 0, 0, 0.17364822, 0.9848077, 0, -0.9848077, 0.17364822, 0, 0.86176765, -0.6905782)
 mesh = SubResource("CylinderMesh_23chu")
 
-[node name="Exciter" type="Node3D" parent="."]
+[node name="Exciter" type="Node3D" parent="." unique_id=841606294]
 transform = Transform3D(1, 0, 0, 0, 0.17364822, 0.9848077, 0, -0.9848077, 0.17364822, 0, 0.81755114, -0.43981427)
 
-[node name="Ring1" type="MeshInstance3D" parent="Exciter"]
+[node name="Ring1" type="MeshInstance3D" parent="Exciter" unique_id=261316826]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14633566, -3.7252903e-09)
 mesh = SubResource("TorusMesh_62o6i")
 
-[node name="Ring2" type="MeshInstance3D" parent="Exciter"]
+[node name="Ring2" type="MeshInstance3D" parent="Exciter" unique_id=1432280942]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049, 0)
 mesh = SubResource("TorusMesh_nfcuk")
 
-[node name="Ring3" type="MeshInstance3D" parent="Exciter"]
+[node name="Ring3" type="MeshInstance3D" parent="Exciter" unique_id=224959627]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.048, 0)
 mesh = SubResource("TorusMesh_wixf5")
 
-[node name="Ring4" type="MeshInstance3D" parent="Exciter"]
+[node name="Ring4" type="MeshInstance3D" parent="Exciter" unique_id=1108947464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145, 0)
 mesh = SubResource("TorusMesh_cti17")
 
-[node name="Ring5" type="MeshInstance3D" parent="Exciter"]
+[node name="Ring5" type="MeshInstance3D" parent="Exciter" unique_id=580658189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24118853, 4.1909516e-09)
 mesh = SubResource("TorusMesh_aat6r")
 
-[node name="Gimbal" type="MeshInstance3D" parent="."]
+[node name="Gimbal" type="MeshInstance3D" parent="." unique_id=1882681470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74, 0)
 mesh = SubResource("SphereMesh_t40rn")
 
-[node name="Mount" type="MeshInstance3D" parent="."]
+[node name="Mount" type="MeshInstance3D" parent="." unique_id=1847723046]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.365, 0)
 mesh = SubResource("CylinderMesh_ujooh")
 skeleton = NodePath("../..")
 
-[node name="Muzzle" type="Marker3D" parent="."]
+[node name="Muzzle" type="Marker3D" parent="." unique_id=1256372657]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95268404, -1.1706604)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://l62gx0wmdeq1"]
+[gd_scene format=3 uid="uid://l62gx0wmdeq1"]
 
 [ext_resource type="Script" uid="uid://dck2480rsydw2" path="res://scripts/enemy/machine_coremind_controller.gd" id="1_ww7pj"]
 [ext_resource type="PackedScene" uid="uid://djr01s1bgku45" path="res://assets/meshes/machine_coremind_core.glb" id="2_spnxd"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dtuvq5yey34nh" path="res://assets/meshes/machine_coremind_outer_sphere.glb" id="5_r6ta1"]
 [ext_resource type="PackedScene" uid="uid://d1vk6s4fdkw27" path="res://assets/meshes/machine_coremind_shield.glb" id="6_rtds6"]
 
-[node name="MachineCoremind" type="Node3D"]
+[node name="MachineCoremind" type="Node3D" unique_id=1405586101]
 script = ExtResource("1_ww7pj")
 inner_sphere_path = NodePath("ModelRoot/MachineCoremindInnerSphereMesh")
 secondary_sphere_path = NodePath("ModelRoot/MachineCoremindSecondarySphereMesh")
@@ -16,22 +16,22 @@ sphere_speed_min_deg = 20.0
 sphere_speed_max_deg = 40.0
 preview_in_editor = false
 
-[node name="ModelRoot" type="Node3D" parent="."]
+[node name="ModelRoot" type="Node3D" parent="." unique_id=981501159]
 
-[node name="MachineCoremindCoreMesh" parent="ModelRoot" instance=ExtResource("2_spnxd")]
+[node name="MachineCoremindCoreMesh" parent="ModelRoot" unique_id=2034616850 instance=ExtResource("2_spnxd")]
 skeleton = NodePath("../..")
 
-[node name="MachineCoremindInnerSphereMesh" parent="ModelRoot" instance=ExtResource("3_kknys")]
+[node name="MachineCoremindInnerSphereMesh" parent="ModelRoot" unique_id=1330969941 instance=ExtResource("3_kknys")]
 skeleton = NodePath("../..")
 
-[node name="MachineCoremindSecondarySphereMesh" parent="ModelRoot" instance=ExtResource("4_j4ma0")]
+[node name="MachineCoremindSecondarySphereMesh" parent="ModelRoot" unique_id=183585277 instance=ExtResource("4_j4ma0")]
 skeleton = NodePath("../..")
 
-[node name="MachineCoremindOuterSphereMesh" parent="ModelRoot" instance=ExtResource("5_r6ta1")]
+[node name="MachineCoremindOuterSphereMesh" parent="ModelRoot" unique_id=134734890 instance=ExtResource("5_r6ta1")]
 skeleton = NodePath("../..")
 
-[node name="MachineCoremindShieldMesh" parent="ModelRoot" instance=ExtResource("6_rtds6")]
+[node name="MachineCoremindShieldMesh" parent="ModelRoot" unique_id=981188614 instance=ExtResource("6_rtds6")]
 skeleton = NodePath("../..")
 
-[node name="MuzzleSocket" type="Marker3D" parent="ModelRoot"]
+[node name="MuzzleSocket" type="Marker3D" parent="ModelRoot" unique_id=953642492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)

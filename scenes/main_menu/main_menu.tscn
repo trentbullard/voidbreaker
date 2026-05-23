@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://drrnshnyy4682"]
+[gd_scene format=3 uid="uid://drrnshnyy4682"]
 
 [ext_resource type="Script" uid="uid://ctypdxlxrxqme" path="res://scripts/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="Script" uid="uid://bp86upa6vqbpe" path="res://scripts/main_menu/high_score_container.gd" id="3_ob46e"]
@@ -62,7 +62,7 @@ font_size = 12
 line_spacing = 0.0
 font = ExtResource("5_3ovsr")
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1550428847]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,7 +72,7 @@ grow_vertical = 2
 script = ExtResource("1_0ebjn")
 pilot_roster = ExtResource("4_pilot_roster")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1275361430]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,70 +80,70 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenuContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="MainMenuContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1274890402]
 layout_mode = 2
 
-[node name="TitleContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer"]
+[node name="TitleContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer" unique_id=533965598]
 layout_mode = 2
 
-[node name="Logo" type="Sprite2D" parent="CenterContainer/MainMenuContainer/TitleContainer"]
+[node name="Logo" type="Sprite2D" parent="CenterContainer/MainMenuContainer/TitleContainer" unique_id=1373381031]
 position = Vector2(36, 86.000015)
 scale = Vector2(0.28857422, 0.28857422)
 texture = ExtResource("3_uqeha")
 
-[node name="Title" type="Label" parent="CenterContainer/MainMenuContainer/TitleContainer"]
+[node name="Title" type="Label" parent="CenterContainer/MainMenuContainer/TitleContainer" unique_id=1225919921]
 layout_mode = 2
 text = "FluxBreak"
 label_settings = SubResource("LabelSettings_ob46e")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonPanel" type="PanelContainer" parent="CenterContainer/MainMenuContainer"]
+[node name="ButtonPanel" type="PanelContainer" parent="CenterContainer/MainMenuContainer" unique_id=1323018284]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uqeha")
 
-[node name="ButtonMargins" type="MarginContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel"]
+[node name="ButtonMargins" type="MarginContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel" unique_id=1969483963]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins" unique_id=1387951927]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PilotContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer"]
+[node name="PilotContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer" unique_id=52075162]
 layout_mode = 2
 
-[node name="Row" type="HBoxContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/PilotContainer"]
+[node name="Row" type="HBoxContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/PilotContainer" unique_id=1086414238]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PilotLabel" type="Label" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/PilotContainer/Row"]
+[node name="PilotLabel" type="Label" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/PilotContainer/Row" unique_id=1410288629]
 layout_mode = 2
 text = "Pilot:"
 label_settings = SubResource("LabelSettings_5seab")
 
-[node name="PilotPicker" type="OptionButton" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/PilotContainer/Row"]
+[node name="PilotPicker" type="OptionButton" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/PilotContainer/Row" unique_id=1416721210]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../../../ShipContainer/Row/ShipPicker")
 focus_next = NodePath("../../../ShipContainer/Row/ShipPicker")
 theme = SubResource("Theme_4xg86")
 
-[node name="ShipContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer"]
+[node name="ShipContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer" unique_id=1484818313]
 layout_mode = 2
 
-[node name="Row" type="HBoxContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/ShipContainer"]
+[node name="Row" type="HBoxContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/ShipContainer" unique_id=1185400440]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ShipLabel" type="Label" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/ShipContainer/Row"]
+[node name="ShipLabel" type="Label" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/ShipContainer/Row" unique_id=1907789670]
 layout_mode = 2
 text = "Ship:"
 label_settings = SubResource("LabelSettings_5seab")
 
-[node name="ShipPicker" type="OptionButton" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/ShipContainer/Row"]
+[node name="ShipPicker" type="OptionButton" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/ShipContainer/Row" unique_id=415172510]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../../PilotContainer/Row/PilotPicker")
 focus_neighbor_bottom = NodePath("../../../WeaponContainer/Row/WeaponPicker")
@@ -151,19 +151,19 @@ focus_next = NodePath("../../../WeaponContainer/Row/WeaponPicker")
 focus_previous = NodePath("../../../PilotContainer/Row/PilotPicker")
 theme = SubResource("Theme_4xg86")
 
-[node name="WeaponContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer"]
+[node name="WeaponContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer" unique_id=45511775]
 layout_mode = 2
 
-[node name="Row" type="HBoxContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/WeaponContainer"]
+[node name="Row" type="HBoxContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/WeaponContainer" unique_id=2097435128]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="WeaponLabel" type="Label" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/WeaponContainer/Row"]
+[node name="WeaponLabel" type="Label" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/WeaponContainer/Row" unique_id=1281082294]
 layout_mode = 2
 text = "Weapon:"
 label_settings = SubResource("LabelSettings_5seab")
 
-[node name="WeaponPicker" type="OptionButton" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/WeaponContainer/Row"]
+[node name="WeaponPicker" type="OptionButton" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/WeaponContainer/Row" unique_id=1582726976]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../../ShipContainer/Row/ShipPicker")
 focus_neighbor_bottom = NodePath("../../../UpgradesContainer/Upgrades")
@@ -171,10 +171,10 @@ focus_next = NodePath("../../../UpgradesContainer/Upgrades")
 focus_previous = NodePath("../../../ShipContainer/Row/ShipPicker")
 theme = SubResource("Theme_4xg86")
 
-[node name="UpgradesContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer"]
+[node name="UpgradesContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer" unique_id=943631027]
 layout_mode = 2
 
-[node name="Upgrades" type="Button" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/UpgradesContainer"]
+[node name="Upgrades" type="Button" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/UpgradesContainer" unique_id=383352009]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../WeaponContainer/Row/WeaponPicker")
 focus_neighbor_bottom = NodePath("../../PracticeContainer/Practice")
@@ -183,10 +183,10 @@ focus_previous = NodePath("../../WeaponContainer/Row/WeaponPicker")
 theme = SubResource("Theme_wem23")
 text = "Upgrades"
 
-[node name="PracticeContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer"]
+[node name="PracticeContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer" unique_id=807671300]
 layout_mode = 2
 
-[node name="Practice" type="Button" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/PracticeContainer"]
+[node name="Practice" type="Button" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/PracticeContainer" unique_id=1368523961]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../UpgradesContainer/Upgrades")
 focus_neighbor_bottom = NodePath("../../SettingsContainer/Settings")
@@ -195,10 +195,10 @@ focus_previous = NodePath("../../UpgradesContainer/Upgrades")
 theme = SubResource("Theme_wem23")
 text = "Practice"
 
-[node name="SettingsContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer"]
+[node name="SettingsContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer" unique_id=967670781]
 layout_mode = 2
 
-[node name="Settings" type="Button" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/SettingsContainer"]
+[node name="Settings" type="Button" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/SettingsContainer" unique_id=567390409]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../PracticeContainer/Practice")
 focus_neighbor_bottom = NodePath("../../ExitContainer/Exit")
@@ -208,20 +208,20 @@ theme = SubResource("Theme_5seab")
 disabled = true
 text = "Settings"
 
-[node name="ExitContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer"]
+[node name="ExitContainer" type="CenterContainer" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer" unique_id=1427433585]
 layout_mode = 2
 
-[node name="Exit" type="Button" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/ExitContainer"]
+[node name="Exit" type="Button" parent="CenterContainer/MainMenuContainer/ButtonPanel/ButtonMargins/ButtonsContainer/ExitContainer" unique_id=1486470593]
 layout_mode = 2
 focus_neighbor_top = NodePath("../../SettingsContainer/Settings")
 focus_previous = NodePath("../../SettingsContainer/Settings")
 theme = SubResource("Theme_thkx5")
 text = "Exit"
 
-[node name="InstructionPanel" type="PanelContainer" parent="CenterContainer/MainMenuContainer"]
+[node name="InstructionPanel" type="PanelContainer" parent="CenterContainer/MainMenuContainer" unique_id=947885478]
 layout_mode = 2
 
-[node name="InstructionsLabel" type="Label" parent="CenterContainer/MainMenuContainer/InstructionPanel"]
+[node name="InstructionsLabel" type="Label" parent="CenterContainer/MainMenuContainer/InstructionPanel" unique_id=795163864]
 layout_mode = 2
 text = "Instructions (for now)
 
@@ -235,7 +235,7 @@ Unlock pilots and ships by reaching certain achievements"
 label_settings = SubResource("LabelSettings_thkx5")
 horizontal_alignment = 1
 
-[node name="HighScoreContainer" type="Control" parent="."]
+[node name="HighScoreContainer" type="Control" parent="." unique_id=1390078896]
 layout_mode = 1
 anchors_preset = 0
 offset_left = 10.0
@@ -244,14 +244,14 @@ offset_right = 10.0
 offset_bottom = 10.0
 script = ExtResource("3_ob46e")
 
-[node name="Label" type="Label" parent="HighScoreContainer"]
+[node name="Label" type="Label" parent="HighScoreContainer" unique_id=1615079141]
 layout_mode = 0
 offset_right = 83.0
 offset_bottom = 23.0
 text = "High Score: 0"
 label_settings = SubResource("LabelSettings_3ovsr")
 
-[node name="FluxAnchorsContainer" type="Control" parent="."]
+[node name="FluxAnchorsContainer" type="Control" parent="." unique_id=894659263]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -263,7 +263,7 @@ offset_bottom = 35.0
 grow_horizontal = 0
 script = ExtResource("10_fac")
 
-[node name="Label" type="Label" parent="FluxAnchorsContainer"]
+[node name="Label" type="Label" parent="FluxAnchorsContainer" unique_id=791929769]
 layout_mode = 0
 offset_right = 220.0
 offset_bottom = 25.0
@@ -271,9 +271,9 @@ text = "Flux Anchors: 0"
 label_settings = SubResource("LabelSettings_3ovsr")
 horizontal_alignment = 2
 
-[node name="UpgradesPanel" parent="." instance=ExtResource("11_upgpanel")]
+[node name="UpgradesPanel" parent="." unique_id=1585461120 instance=ExtResource("11_upgpanel")]
 
-[node name="RoadmapPanel" type="PanelContainer" parent="."]
+[node name="RoadmapPanel" type="PanelContainer" parent="." unique_id=1140460320]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -286,7 +286,7 @@ offset_bottom = 122.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="RoadmapLabel" type="Label" parent="RoadmapPanel"]
+[node name="RoadmapLabel" type="Label" parent="RoadmapPanel" unique_id=238269971]
 layout_mode = 2
 text = "Roadmap:
 - Upgrade POIs Finished
@@ -305,10 +305,10 @@ text = "Roadmap:
 - Lore/Story"
 label_settings = SubResource("LabelSettings_4xg86")
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=2118794314]
 stream = ExtResource("7_5seab")
 
-[node name="VersionContainer" type="PanelContainer" parent="."]
+[node name="VersionContainer" type="PanelContainer" parent="." unique_id=416780559]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -320,7 +320,7 @@ offset_bottom = -2.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5seab")
 
-[node name="VersionLabel" type="Label" parent="VersionContainer"]
+[node name="VersionLabel" type="Label" parent="VersionContainer" unique_id=307391590]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_x2yjq")
 vertical_alignment = 2

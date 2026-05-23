@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://poi_placeholder_scene"]
+[gd_scene format=3 uid="uid://cbb0gw1l5yeu3"]
 
-[ext_resource type="Script" path="res://scripts/poi/poi_instance.gd" id="1_poi"]
+[ext_resource type="Script" uid="uid://brh4jqcc46yxq" path="res://scripts/poi/poi_instance.gd" id="1_poi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_placeholder"]
-size = Vector3(50.0, 50.0, 50.0)
+size = Vector3(50, 50, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poi"]
-albedo_color = Color(0.3, 0.5, 0.8, 1.0)
+albedo_color = Color(0.3, 0.5, 0.8, 1)
 emission_enabled = true
-emission = Color(0.2, 0.6, 1.0, 1.0)
+emission = Color(0.2, 0.6, 1, 1)
 emission_energy_multiplier = 2.0
 
-[node name="PoiPlaceholder" type="Node3D"]
+[node name="PoiPlaceholder" type="Node3D" unique_id=623587124]
 script = ExtResource("1_poi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=842275243]
 mesh = SubResource("BoxMesh_placeholder")
 surface_material_override/0 = SubResource("StandardMaterial3D_poi")
