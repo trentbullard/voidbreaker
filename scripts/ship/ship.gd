@@ -94,6 +94,7 @@ var eff_angular_accel: Vector3
 var eff_pickup_range: float
 var eff_nanobot_gain_mult: float
 var eff_score_gain_mult: float
+var eff_poi_cost_mult: float
 var eff_pilot_g_tolerance: float
 var eff_pilot_g_hard_limit: float
 var eff_pilot_forward_accel_min_scale: float
@@ -552,6 +553,9 @@ func get_effective_nanobot_gain_mult() -> float:
 func get_effective_score_gain_mult() -> float:
 	return eff_score_gain_mult
 
+func get_effective_poi_cost_mult() -> float:
+	return eff_poi_cost_mult
+
 func get_equipped_weapon_ids() -> Array[StringName]:
 	var weapon_ids: Array[StringName] = []
 	if hardpoint_manager != null:
@@ -830,6 +834,7 @@ func _refresh_effective_stats() -> void:
 		eff_pickup_range = pickup_range
 		eff_nanobot_gain_mult = nanobot_gain_mult
 		eff_score_gain_mult = score_gain_mult
+		eff_poi_cost_mult = 1.0
 		eff_pilot_g_tolerance = max(_pilot_forward_g_tolerance, 0.0)
 		eff_pilot_g_hard_limit = max(_pilot_forward_g_hard_limit, eff_pilot_g_tolerance + 0.01)
 		eff_pilot_forward_accel_min_scale = clamp(_pilot_forward_accel_min_scale, 0.0, 1.0)
@@ -865,6 +870,7 @@ func _refresh_effective_stats() -> void:
 	eff_pickup_range = aggr.compute_for_context(Stat.PICKUP_RANGE, pickup_range, StatAggregator.Context.PLAYER)
 	eff_nanobot_gain_mult = aggr.compute_for_context(Stat.NANOBOT_GAIN_MULT, nanobot_gain_mult, StatAggregator.Context.PLAYER)
 	eff_score_gain_mult = aggr.compute_for_context(Stat.SCORE_GAIN_MULT, score_gain_mult, StatAggregator.Context.PLAYER)
+	eff_poi_cost_mult = max(aggr.compute_for_context(Stat.POI_COST_MULT, 1.0, StatAggregator.Context.PLAYER), 0.0)
 	eff_pilot_g_tolerance = max(aggr.compute_for_context(Stat.PILOT_G_TOLERANCE, _pilot_forward_g_tolerance, StatAggregator.Context.PLAYER), 0.0)
 	eff_pilot_g_hard_limit = max(aggr.compute_for_context(Stat.PILOT_G_HARD_LIMIT, _pilot_forward_g_hard_limit, StatAggregator.Context.PLAYER), eff_pilot_g_tolerance + 0.01)
 	eff_pilot_forward_accel_min_scale = clamp(aggr.compute_for_context(Stat.PILOT_FORWARD_ACCEL_MIN_SCALE, _pilot_forward_accel_min_scale, StatAggregator.Context.PLAYER), 0.0, 1.0)

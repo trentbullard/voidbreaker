@@ -468,8 +468,22 @@ func _roll_upgrade_offer_cost(upgrade: Upgrade) -> int:
 
 func _get_offer_cost(index: int, upgrade: Upgrade) -> int:
 	if index >= 0 and index < _upgrade_offer_costs.size():
-		return _upgrade_offer_costs[index]
-	return _roll_upgrade_offer_cost(upgrade)
+		return _apply_poi_cost_multiplier(_upgrade_offer_costs[index])
+	return _apply_poi_cost_multiplier(_roll_upgrade_offer_cost(upgrade))
+
+
+func _get_weapon_offer_cost(weapon: WeaponDef) -> int:
+	if weapon == null:
+		return 1
+	return _apply_poi_cost_multiplier(RunState.get_weapon_cost(weapon.cost))
+
+
+func _apply_poi_cost_multiplier(base_cost: int) -> int:
+	var player_ship: Ship = _get_player_ship()
+	var multiplier: float = 1.0
+	if player_ship != null:
+		multiplier = max(player_ship.get_effective_poi_cost_mult(), 0.0)
+	return max(int(round(float(max(base_cost, 1)) * multiplier)), 1)
 
 
 func _build_upgrade_pool_for_poi(poi: PoiInstance) -> Array[Upgrade]:
@@ -589,7 +603,7 @@ func _update_buttons() -> void:
 			# Weapon slot becomes a status message when all mounts are filled.
 			btn.visible = true
 			if _has_open_weapon_mount():
-				var weapon_cost: int = RunState.get_weapon_cost(_weapon_choice.cost)
+				var weapon_cost: int = _get_weapon_offer_cost(_weapon_choice)
 				btn.text = "+ %s (%d)" % [_weapon_choice.display_name, weapon_cost]
 				btn.disabled = weapon_cost > nb
 			else:
@@ -625,7 +639,7 @@ func _on_button_pressed(index: int) -> void:
 		# Weapon selected - uses progressive pricing
 		if not _has_open_weapon_mount():
 			return
-		var weapon_cost: int = RunState.get_weapon_cost(_weapon_choice.cost)
+		var weapon_cost: int = _get_weapon_offer_cost(_weapon_choice)
 		if weapon_cost > _current_nanobots:
 			return  # Can't afford
 		_spend_nanobots(weapon_cost)
