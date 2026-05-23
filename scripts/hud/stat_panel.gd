@@ -1,4 +1,4 @@
-# scripts/hud/stat_panel.gd (godot 4.5)
+# scripts/hud/stat_panel.gd (godot 4.6.3)
 extends ScrollContainer
 class_name StatPanel
 

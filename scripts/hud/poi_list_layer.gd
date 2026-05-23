@@ -1,4 +1,4 @@
-# scripts/hud/poi_list_layer.gd (Godot 4.5)
+# scripts/hud/poi_list_layer.gd (Godot 4.6.3)
 # Displays a list of spawned POIs with their distances from the player.
 extends Control
 class_name PoiListLayer

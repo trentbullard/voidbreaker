@@ -1,4 +1,4 @@
-# scripts/hud/offscreen_indicator_layer.gd (Godot 4.5)
+# scripts/hud/offscreen_indicator_layer.gd (Godot 4.6.3)
 # Manages off-screen indicators that show direction to objects not currently visible.
 # Icons rotate around the screen edge to indicate the 3D direction to turn.
 extends Control

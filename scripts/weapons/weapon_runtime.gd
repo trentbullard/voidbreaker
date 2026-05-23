@@ -1,4 +1,4 @@
-# scripts/weapons/weapon_runtime.gd (godot 4.5)
+# scripts/weapons/weapon_runtime.gd (godot 4.6.3)
 extends RefCounted
 class_name WeaponRuntime
 

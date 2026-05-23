@@ -1,4 +1,4 @@
-# offscreen_icon_registry.gd (Godot 4.5)
+# offscreen_icon_registry.gd (Godot 4.6.3)
 # Modular registry that maps object kinds/types to icon drawing callbacks.
 # Extend this to add SVG icons or custom textures later.
 extends RefCounted

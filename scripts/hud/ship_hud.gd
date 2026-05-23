@@ -1,4 +1,4 @@
-# ship_hud.gd  (Godot 4.5)
+# ship_hud.gd  (Godot 4.6.3)
 extends Control
 class_name ShipHud
 

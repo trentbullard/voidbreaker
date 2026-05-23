@@ -1,4 +1,4 @@
-# content/defs/ship_def.gd (Godot 4.5)
+# content/defs/ship_def.gd (Godot 4.6.3)
 extends Resource
 class_name ShipDef
 

@@ -1,4 +1,4 @@
-# content/defs/meta_upgrade_def.gd (Godot 4.5)
+# content/defs/meta_upgrade_def.gd (Godot 4.6.3)
 # Resource definition for a permanent meta progression upgrade.
 # Each upgrade has multiple purchasable tiers costing Flux Anchors.
 extends Resource

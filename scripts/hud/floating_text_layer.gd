@@ -1,4 +1,4 @@
-# floating_text_layer.gd (Godot 4.5)
+# floating_text_layer.gd (Godot 4.6.3)
 extends Control
 class_name FloatingTextLayer
 

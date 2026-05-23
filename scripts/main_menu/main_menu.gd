@@ -1,4 +1,4 @@
-# main_menu.gd (Godot 4.5)
+# main_menu.gd (Godot 4.6.3)
 extends Control
 
 signal practice_requested

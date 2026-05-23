@@ -1,4 +1,4 @@
-# scripts/stats/stat_aggregator.gd (godot 4.5)
+# scripts/stats/stat_aggregator.gd (godot 4.6.3)
 extends Node
 class_name StatAggregator
 

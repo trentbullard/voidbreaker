@@ -1,4 +1,4 @@
-# scripts/autoload/event_bus.gd (godot 4.5)
+# scripts/autoload/event_bus.gd (godot 4.6.3)
 extends Node
 
 signal weapons_changed(weapons: Array[WeaponDef])

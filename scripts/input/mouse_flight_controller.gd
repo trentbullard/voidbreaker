@@ -1,4 +1,4 @@
-# mouse_flight_controller.gd  (Godot 4.5)
+# mouse_flight_controller.gd  (Godot 4.6.3)
 extends Node
 
 @export var ship: Ship

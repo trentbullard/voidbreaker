@@ -1,4 +1,4 @@
-# scripts/enemy/enemy.gd  (Godot 4.5)
+# scripts/enemy/enemy.gd  (Godot 4.6.3)
 extends RigidBody3D
 class_name Enemy
 

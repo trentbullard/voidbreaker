@@ -1,4 +1,4 @@
-# content/defs/weapon_def.gd (godot 4.5)
+# content/defs/weapon_def.gd (godot 4.6.3)
 extends Resource
 class_name WeaponDef
 

@@ -1,4 +1,4 @@
-# content/defs/poi_def.gd (Godot 4.5)
+# content/defs/poi_def.gd (Godot 4.6.3)
 extends Resource
 class_name PoiDef
 

@@ -1,4 +1,4 @@
-# systems/catalogs/target_catalog.gd (godot 4.5)
+# systems/catalogs/target_catalog.gd (godot 4.6.3)
 extends Node
 class_name TargetCatalog
 

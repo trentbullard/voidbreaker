@@ -1,4 +1,4 @@
-# high_score_container.gd (godot 4.5)
+# high_score_container.gd (godot 4.6.3)
 extends Control
 
 @onready var label: Label = $Label as Label

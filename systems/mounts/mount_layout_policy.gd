@@ -1,4 +1,4 @@
-# systems/mounts/mount_layout_policy.gd (godot 4.5)
+# systems/mounts/mount_layout_policy.gd (godot 4.6.3)
 extends Resource
 class_name MountLayoutPolicy
 

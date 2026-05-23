@@ -1,4 +1,4 @@
-# scripts/weapons/projectile_weapon_runtime.gd (godot 4.5)
+# scripts/weapons/projectile_weapon_runtime.gd (godot 4.6.3)
 extends WeaponRuntime
 class_name ProjectileWeaponRuntime
 

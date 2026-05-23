@@ -1,4 +1,4 @@
-# scripts/enemy/machine_warden_controller.gd (godot 4.5)
+# scripts/enemy/machine_warden_controller.gd (godot 4.6.3)
 @tool
 extends Node3D
 

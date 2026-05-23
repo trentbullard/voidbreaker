@@ -1,4 +1,4 @@
-# scripts/hud/docking_hud.gd (Godot 4.5)
+# scripts/hud/docking_hud.gd (Godot 4.6.3)
 # Displays the docking countdown when player is within range of a POI.
 extends Control
 class_name DockingHud

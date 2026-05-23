@@ -1,6 +1,6 @@
 # Fluxbreak
 
-Fluxbreak is a roguelike space auto-battler built in Godot 4.5. You pilot a ship through escalating combat waves, collect nanobots from the wreckage, and dock at stations to shape a run with new weapons and upgrades.
+Fluxbreak is a roguelike space auto-battler built in Godot 4.6.3. You pilot a ship through escalating combat waves, collect nanobots from the wreckage, and dock at stations to shape a run with new weapons and upgrades.
 
 The game is built around auto-combat rather than manual aiming. Your job is to stay alive, hold a readable combat line, and stack synergies that carry deeper into the run. The intended feel is dark futurepunk: sharp silhouettes, neon accents, industrial grime, crunchy combat feedback, and a clean HUD that stays legible when the screen gets busy.
 
@@ -55,7 +55,7 @@ Combat targeting and firing are handled automatically by the ship's weapon syste
 
 ## Tech
 
-- Engine: Godot 4.5
+- Engine: Godot 4.6.3
 - Language: typed GDScript
 - Project version: `0.1.6.2`
 

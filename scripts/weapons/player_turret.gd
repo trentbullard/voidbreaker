@@ -1,4 +1,4 @@
-# scripts/weapons/player_turret.gd (godot 4.5)
+# scripts/weapons/player_turret.gd (godot 4.6.3)
 extends Node3D
 class_name PlayerTurret
 

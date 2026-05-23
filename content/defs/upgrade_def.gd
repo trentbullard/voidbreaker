@@ -1,4 +1,4 @@
-# content/defs/upgrade_def.gd (godot 4.5)
+# content/defs/upgrade_def.gd (godot 4.6.3)
 # an upgrade can have multiple stat modifiers
 extends Resource
 class_name Upgrade

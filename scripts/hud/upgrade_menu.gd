@@ -1,4 +1,4 @@
-# scripts/hud/upgrade_menu.gd (Godot 4.5)
+# scripts/hud/upgrade_menu.gd (Godot 4.6.3)
 # Modal menu shown when docking at a POI is complete.
 # Displays upgrade choices and allows player to pick one.
 extends CanvasLayer

@@ -1,4 +1,4 @@
-# scripts/hud/pause_menu.gd (godot 4.5)
+# scripts/hud/pause_menu.gd (godot 4.6.3)
 extends CanvasLayer
 class_name PauseMenu
 

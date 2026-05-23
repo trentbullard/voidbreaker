@@ -1,4 +1,4 @@
-# explosion.gd  (Godot 4.5)
+# explosion.gd  (Godot 4.6.3)
 extends CPUParticles3D
 
 @export var auto_free: bool = true

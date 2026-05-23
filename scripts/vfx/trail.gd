@@ -1,4 +1,4 @@
-# scripts/vfx/trail.gd  (Godot 4.5)
+# scripts/vfx/trail.gd  (Godot 4.6.3)
 extends MeshInstance3D
 
 @export var target_path: NodePath

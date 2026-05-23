@@ -1,4 +1,4 @@
-# combat_stats.gd (autoload godot 4.5)
+# combat_stats.gd (autoload godot 4.6.3)
 extends Node
 
 @export var dps_tau_sec: float = 3.0

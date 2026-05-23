@@ -1,4 +1,4 @@
-# scripts/hud/debug_wave_hud.gd (godot 4.5)
+# scripts/hud/debug_wave_hud.gd (godot 4.6.3)
 extends MarginContainer
 class_name DebugWaveHUD
 

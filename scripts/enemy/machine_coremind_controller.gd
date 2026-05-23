@@ -1,4 +1,4 @@
-# script/enemy/machine_coremind_controller.gd (godot 4.5)
+# script/enemy/machine_coremind_controller.gd (godot 4.6.3)
 @tool
 extends Node3D
 

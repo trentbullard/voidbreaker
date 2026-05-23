@@ -1,4 +1,4 @@
-# systems/catalogs/enemy_catalog.gd (godot 4.5)
+# systems/catalogs/enemy_catalog.gd (godot 4.6.3)
 extends Node
 class_name EnemyCatalog
 

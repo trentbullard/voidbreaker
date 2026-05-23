@@ -1,4 +1,4 @@
-# scripts/ship/ship.gd  (Godot 4.5)
+# scripts/ship/ship.gd  (Godot 4.6.3)
 extends RigidBody3D
 class_name Ship
 

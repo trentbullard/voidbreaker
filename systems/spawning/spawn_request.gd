@@ -1,4 +1,4 @@
-# systems/spawning/spawn_request.gd (godot 4.5)
+# systems/spawning/spawn_request.gd (godot 4.6.3)
 extends Resource
 class_name SpawnRequest
 

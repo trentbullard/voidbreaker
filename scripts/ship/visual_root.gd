@@ -1,4 +1,4 @@
-# scripts/ship/visual_root.gd  (Godot 4.5)
+# scripts/ship/visual_root.gd  (Godot 4.6.3)
 extends Node3D
 
 @export var ship: Ship

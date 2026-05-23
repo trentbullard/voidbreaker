@@ -1,4 +1,4 @@
-# scripts/components/threat_director.gd (godot 4.5)
+# scripts/components/threat_director.gd (godot 4.6.3)
 extends Node
 class_name ThreatDirector
 

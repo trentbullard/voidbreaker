@@ -1,4 +1,4 @@
-# scripts/weapons/laser_turret_visual_controller.gd (godot 4.5)
+# scripts/weapons/laser_turret_visual_controller.gd (godot 4.6.3)
 extends Node3D
 class_name LaserTurretVisualController
 

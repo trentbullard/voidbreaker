@@ -1,4 +1,4 @@
-# scripts/ship/turret_hardpoint_manager.gd (godot 4.5)
+# scripts/ship/turret_hardpoint_manager.gd (godot 4.6.3)
 extends Node3D
 class_name TurretHardpointManager
 

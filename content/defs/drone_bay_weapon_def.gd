@@ -1,4 +1,4 @@
-# content/defs/drone_bay_weapon_def.gd (godot 4.5)
+# content/defs/drone_bay_weapon_def.gd (godot 4.6.3)
 extends WeaponDef
 class_name DroneBayWeaponDef
 

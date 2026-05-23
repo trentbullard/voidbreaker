@@ -1,4 +1,4 @@
-# scripts/components/wave_budgeter.gd (godot 4.5)
+# scripts/components/wave_budgeter.gd (godot 4.6.3)
 extends Node
 class_name WaveBudgeter
 

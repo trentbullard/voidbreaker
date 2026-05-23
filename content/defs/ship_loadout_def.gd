@@ -1,4 +1,4 @@
-# content/defs/ship_loadout_def.gd (godot 4.5)
+# content/defs/ship_loadout_def.gd (godot 4.6.3)
 extends Resource
 class_name ShipLoadoutDef
 

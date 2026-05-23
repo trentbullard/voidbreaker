@@ -1,4 +1,4 @@
-# upgrades_panel.gd (Godot 4.5)
+# upgrades_panel.gd (Godot 4.6.3)
 # Full-screen overlay panel for browsing and purchasing meta upgrades.
 # Uses a staged pending-changes flow: players stage changes with [+]/[-] buttons,
 # then confirm via Apply or discard via Reset/Close.

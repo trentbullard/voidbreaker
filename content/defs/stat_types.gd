@@ -1,4 +1,4 @@
-# content/defs/stat_types.gd - autoload (godot 4.5)
+# content/defs/stat_types.gd - autoload (godot 4.6.3)
 extends Node
 
 ## Central enum of all upgradable stats.

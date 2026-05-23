@@ -1,4 +1,4 @@
-# flux_anchors_container.gd (Godot 4.5)
+# flux_anchors_container.gd (Godot 4.6.3)
 # Displays the player's persistent Flux Anchor balance in the main menu.
 extends Control
 

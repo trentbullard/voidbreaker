@@ -1,4 +1,4 @@
-# scripts/target_object/target_object.gd  (Godot 4.5)
+# scripts/target_object/target_object.gd  (Godot 4.6.3)
 extends RigidBody3D
 class_name TargetObject
 

@@ -1,4 +1,4 @@
-# content/defs/pilot_roster.gd (Godot 4.5)
+# content/defs/pilot_roster.gd (Godot 4.6.3)
 extends Resource
 class_name PilotRoster
 

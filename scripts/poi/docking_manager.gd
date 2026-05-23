@@ -1,4 +1,4 @@
-# scripts/poi/docking_manager.gd (Godot 4.5)
+# scripts/poi/docking_manager.gd (Godot 4.6.3)
 # Manages docking interactions between the player ship and POIs.
 # Detects when player is within docking range, manages countdown, and triggers upgrade menu.
 extends Node

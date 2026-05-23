@@ -1,4 +1,4 @@
-# nameplate_manager.gd  (Godot 4.5)
+# nameplate_manager.gd  (Godot 4.6.3)
 extends Control
 class_name NameplateManager
 

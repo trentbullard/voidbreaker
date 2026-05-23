@@ -1,4 +1,4 @@
-# scripts/weapons/drone_bay_weapon_runtime.gd (godot 4.5)
+# scripts/weapons/drone_bay_weapon_runtime.gd (godot 4.6.3)
 extends WeaponRuntime
 class_name DroneBayWeaponRuntime
 

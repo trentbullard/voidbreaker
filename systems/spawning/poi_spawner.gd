@@ -1,4 +1,4 @@
-# systems/spawning/poi_spawner.gd (Godot 4.5)
+# systems/spawning/poi_spawner.gd (Godot 4.6.3)
 extends Node3D
 class_name PoiSpawner
 
