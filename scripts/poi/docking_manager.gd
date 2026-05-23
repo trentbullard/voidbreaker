@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 	
 	var ship_pos: Vector3 = _ship.global_position
 	var closest_poi: PoiInstance = null
-	var closest_distance: float = INF
+	var closest_distance_sq: float = INF
 	
 	# Find the closest POI within docking range (exclude completed POIs)
 	for poi: PoiInstance in _poi_spawner.get_active_pois():
@@ -69,11 +69,12 @@ func _process(delta: float) -> void:
 			continue
 		
 		var docking_radius: float = _get_docking_radius(poi)
-		var distance: float = ship_pos.distance_to(poi.global_position)
+		var docking_radius_sq: float = docking_radius * docking_radius
+		var distance_sq: float = ship_pos.distance_squared_to(poi.global_position)
 		
-		if distance <= docking_radius and distance < closest_distance:
+		if distance_sq <= docking_radius_sq and distance_sq < closest_distance_sq:
 			closest_poi = poi
-			closest_distance = distance
+			closest_distance_sq = distance_sq
 	
 	# Handle docking state
 	if _docking_poi != null:
@@ -130,12 +131,20 @@ func _get_docking_radius(poi: PoiInstance) -> float:
 
 
 func _get_docking_time(poi: PoiInstance) -> float:
+	var base_time: float = docking_time
 	# Use longer docking time for revisits
 	if poi.get_instance_id() in _visited_pois:
-		return revisit_docking_time
-	if poi.poi_def != null:
-		return poi.poi_def.docking_time
-	return docking_time
+		base_time = revisit_docking_time
+	elif poi.poi_def != null:
+		base_time = poi.poi_def.docking_time
+	return max(base_time * _get_effective_docking_time_mult(), 0.0)
+
+
+func _get_effective_docking_time_mult() -> float:
+	var player_ship: Ship = _ship as Ship
+	if player_ship == null:
+		return 1.0
+	return max(player_ship.get_effective_docking_time_mult(), 0.0)
 
 
 func _on_upgrade_menu_closed() -> void:

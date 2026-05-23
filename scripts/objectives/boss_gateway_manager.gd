@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 	var docking_radius: float = _active_gateway.get_docking_radius()
 	if distance_sq <= docking_radius * docking_radius:
 		if _docking_timer <= 0.0:
-			_docking_timer = _active_gateway.get_docking_time()
+			_docking_timer = _active_gateway.get_docking_time() * _get_effective_docking_time_mult()
 			docking_started.emit(_active_gateway)
 		_docking_timer = max(_docking_timer - max(delta, 0.0), 0.0)
 		docking_progress.emit(_active_gateway, _docking_timer)
@@ -62,6 +62,11 @@ func get_active_gateway() -> BossGateway:
 
 func get_docking_timer() -> float:
 	return _docking_timer
+
+func _get_effective_docking_time_mult() -> float:
+	if _ship == null or not is_instance_valid(_ship):
+		return 1.0
+	return max(_ship.get_effective_docking_time_mult(), 0.0)
 
 func _on_gateway_ready(stage: StageDef, spawn_position: Vector3) -> void:
 	_clear_gateway()
