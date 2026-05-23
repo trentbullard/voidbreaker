@@ -548,17 +548,40 @@ func add_flux_anchors(amount: int) -> void:
 	_save_user_data()
 	flux_anchors_updated.emit(flux_anchors, old)
 
-func apply_meta_upgrades(new_levels: Dictionary, cost: int) -> bool:
+func apply_meta_upgrades(new_levels: Dictionary) -> bool:
+	var normalized_levels: Dictionary = _normalize_meta_upgrade_levels(new_levels)
+	var cost: int = _calculate_meta_upgrade_transition_cost(_meta_upgrade_levels, normalized_levels)
 	if cost > flux_anchors:
 		return false
 	var old_anchors: int = flux_anchors
 	flux_anchors = max(0, flux_anchors - cost)
-	_meta_upgrade_levels = new_levels.duplicate(true)
+	_meta_upgrade_levels = normalized_levels
 	_save_user_data()
 	if flux_anchors != old_anchors:
 		flux_anchors_updated.emit(flux_anchors, old_anchors)
 	meta_upgrades_applied.emit(_meta_upgrade_levels.duplicate(true))
 	return true
+
+func _normalize_meta_upgrade_levels(levels: Dictionary) -> Dictionary:
+	var normalized: Dictionary = {}
+	for upgrade: MetaUpgradeDef in get_all_meta_upgrades():
+		if upgrade == null or upgrade.id == "":
+			continue
+		var level: int = clamp(int(levels.get(upgrade.id, 0)), 0, upgrade.max_tiers)
+		if level > 0:
+			normalized[upgrade.id] = level
+	return normalized
+
+func _calculate_meta_upgrade_transition_cost(current_levels: Dictionary, next_levels: Dictionary) -> int:
+	var normalized_current: Dictionary = _normalize_meta_upgrade_levels(current_levels)
+	var total: int = 0
+	for upgrade: MetaUpgradeDef in get_all_meta_upgrades():
+		if upgrade == null or upgrade.id == "":
+			continue
+		var current_level: int = int(normalized_current.get(upgrade.id, 0))
+		var next_level: int = int(next_levels.get(upgrade.id, 0))
+		total += upgrade.get_total_cost_for_levels(current_level, next_level)
+	return total
 
 func get_pilot_stats(pilot_id: StringName) -> Dictionary:
 	var key: String = String(pilot_id)

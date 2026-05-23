@@ -329,9 +329,7 @@ func _on_minus_pressed(upgrade_id: String) -> void:
 
 
 func _on_apply_pressed() -> void:
-	var current_levels: Dictionary = GameFlow.get_current_meta_upgrade_levels()
-	var total_cost: int = _calculate_pending_cost(current_levels)
-	if GameFlow.apply_meta_upgrades(_pending_levels, total_cost):
+	if GameFlow.apply_meta_upgrades(_pending_levels):
 		_pending_levels.clear()
 		var new_current: Dictionary = GameFlow.get_current_meta_upgrade_levels()
 		for upgrade in _get_meta_upgrades():

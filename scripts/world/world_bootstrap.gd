@@ -25,6 +25,8 @@ func _ready() -> void:
 	menu.practice_requested.connect(_on_start_pressed)
 	if not GameFlow.stage_changed.is_connected(_on_stage_changed):
 		GameFlow.stage_changed.connect(_on_stage_changed)
+	if not GameFlow.meta_upgrades_applied.is_connected(_on_meta_upgrades_applied):
+		GameFlow.meta_upgrades_applied.connect(_on_meta_upgrades_applied)
 	if menu.has_signal("selection_changed"):
 		menu.selection_changed.connect(_on_menu_selection_changed)
 	_refresh_ship_from_selection(true)
@@ -39,6 +41,11 @@ func _on_start_pressed() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_menu_selection_changed() -> void:
+	if not get_tree().paused:
+		return
+	_refresh_ship_from_selection(true)
+
+func _on_meta_upgrades_applied(_levels: Dictionary) -> void:
 	if not get_tree().paused:
 		return
 	_refresh_ship_from_selection(true)
