@@ -369,7 +369,7 @@ func get_drone_bay_base_stats() -> Dictionary:
 		"recharge_rate": 1.0,
 		"discharge_rate": 1.0,
 		"extended_discharge_rate": extended_discharge,
-		"radio_range": _get_player_effective_range(),
+		"radio_range": _get_unmodified_player_assign_range(),
 	}
 
 func get_drone_bay_effective_stats() -> Dictionary:
@@ -684,6 +684,13 @@ func _get_player_effective_range() -> float:
 
 func _get_effective_drone_range() -> float:
 	return max(_get_player_effective_range(), eff_minion_radio_range)
+
+func _get_unmodified_player_assign_range() -> float:
+	if turret == null or _drone_bay_weapon == null:
+		return 0.0
+	if turret.max_range_override > 0.0:
+		return turret.max_range_override
+	return max(0.0, _drone_bay_weapon.base_range + turret.range_bonus)
 
 func _sync_slot_to_drone(slot: DroneSlot) -> void:
 	if slot == null or not _is_drone_valid(slot.drone):
