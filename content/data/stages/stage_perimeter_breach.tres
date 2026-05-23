@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://smu5ije51mq7" path="res://assets/spheremaps/rich_blue_nebulae_1.png" id="4_blue_nebula"]
 [ext_resource type="Resource" uid="uid://0c4ms8htkafv" path="res://content/data/enemies/machine_boss_1_mk1.tres" id="5_nd0ai"]
 [ext_resource type="Resource" uid="uid://bf5ocmvxqio0j" path="res://content/data/stages/modifiers/salvage_tide.tres" id="5_salvage_tide"]
-[ext_resource type="Resource" path="res://content/data/stages/modifiers/thruster_corridors.tres" id="6_thruster_corridors"]
+[ext_resource type="Resource" uid="uid://d0eadwg3xdk1b" path="res://content/data/stages/modifiers/thruster_corridors.tres" id="6_thruster_corridors"]
 [ext_resource type="Resource" uid="uid://xwx3fdeai4g8" path="res://content/data/stages/modifiers/sensor_static.tres" id="7_sensor_static"]
 [ext_resource type="Script" uid="uid://c7bw4eh6k252" path="res://content/defs/poi_def.gd" id="8_m83hq"]
 [ext_resource type="PackedScene" uid="uid://dwpchtmcivd4y" path="res://scenes/objectives/boss_gateway.tscn" id="9_gateway_scene"]

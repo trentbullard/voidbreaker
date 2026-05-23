@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bmnwycqihygiu" path="res://content/defs/unlock_requirement.gd" id="4_e66eo"]
 [ext_resource type="Script" uid="uid://01gohq2rb404" path="res://content/defs/pilot_unlock_requirement.gd" id="5_e66eo"]
 [ext_resource type="Resource" uid="uid://da52xasn5mssy" path="res://content/data/ships/starter_fighter.tres" id="5_svfxh"]
-[ext_resource type="Resource" path="res://content/data/unlocks/unlock_ace_wave10_rookie.tres" id="6_4cfw0"]
+[ext_resource type="Resource" uid="uid://dde6q3ldhptqg" path="res://content/data/unlocks/unlock_ace_wave10_rookie.tres" id="6_4cfw0"]
 [ext_resource type="Resource" uid="uid://crfe5wom1uro4" path="res://content/data/ships/drone_carrier.tres" id="6_5nlev"]
 [ext_resource type="Script" uid="uid://dfbwqieormdat" path="res://content/defs/pilot_starter_ship_option_def.gd" id="7_ship_option"]
 

@@ -46,7 +46,7 @@ $exportFlag = if ($BuildType -eq "debug") { "--export-debug" } else { "--export-
 
 $templateVersion = Get-TemplateVersionFromGodot -ExePath $GodotExe
 if ($templateVersion) {
-    $templateRoot = Join-Path $env:APPDATA "Godot\export_templates\$templateVersion"
+    $templateRoot = Join-Path $env:APPDATA "Godot\export_templates\$templateVersion.stable.mono"
     $requiredTemplates = @(
         (Join-Path $templateRoot "windows_debug_x86_64.exe"),
         (Join-Path $templateRoot "windows_release_x86_64.exe")
